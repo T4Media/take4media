@@ -1,0 +1,19 @@
+.our-clients-creative {
+  background-color: #0b0c10;
+  display: grid;
+
+  .container {
+    .row {
+      margin-bottom: 5rem;
+      .col {
+        img {
+          width: 100%;
+        }
+        img:hover {
+          transform: scale(1.1);
+          transition: 0.6s;
+        }
+      }
+    }
+  }
+}

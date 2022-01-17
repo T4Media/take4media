@@ -1,0 +1,28 @@
+.react-multi-carousel-list {
+  .react-multi-carousel-track {
+    li {
+      height: 40rem;
+      .testimonial-card {
+        margin: 20px;
+      }
+    }
+  }
+}
+.react-multi-carousel-dot-list {
+  .react-multi-carousel-dot--active {
+    button {
+      background: #66902f !important;
+      border: none;
+      width: 8px !important;
+      height: 8px !important;
+    }
+  }
+  li {
+    button {
+      background: #66902f6b;
+      border: none;
+      width: 8px !important;
+      height: 8px !important;
+    }
+  }
+}

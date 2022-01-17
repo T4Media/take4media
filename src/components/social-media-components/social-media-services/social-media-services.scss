@@ -1,0 +1,14 @@
+.social-media-services {
+  background-color: #0b0c10;
+  display: grid;
+
+  .container {
+    .row {
+      margin-bottom: 8rem;
+    }
+  }
+
+  .service-card svg {
+    font-size: 90px;
+  }
+}

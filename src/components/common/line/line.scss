@@ -1,0 +1,9 @@
+.line-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  .line {
+    height: 55px;
+    border-left: 4px solid #66902f;
+  }
+}

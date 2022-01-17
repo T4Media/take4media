@@ -1,0 +1,38 @@
+.service-card {
+  margin-top: 3rem;
+  height: 24rem;
+  padding: 70px 80px 70px 55px;
+  background-color: #121212;
+  width: 100%;
+  border-bottom: 5px solid #66902f;
+  cursor: pointer;
+  svg {
+    font-size: 40px;
+    fill: #66902f;
+  }
+  h4 {
+    margin-top: 24px;
+    color: white;
+    font-weight: 700;
+    font-size: 22px;
+  }
+  p {
+    margin-top: 30px;
+    color: white;
+  }
+}
+
+.service-card:hover {
+  background-color: #66902f;
+  border-bottom: 5px solid white;
+  transition: 0.5s;
+  svg {
+    fill: white;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .service-card {
+    width: 22rem !important;
+  }
+}

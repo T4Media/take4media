@@ -1,0 +1,19 @@
+.testimonials {
+  background: #121212;
+
+  .logos {
+    margin-top: 5rem;
+    .container {
+      .row {
+        justify-content: center;
+        .col {
+          max-width: 10rem;
+
+          img {
+            width: 40%;
+          }
+        }
+      }
+    }
+  }
+}

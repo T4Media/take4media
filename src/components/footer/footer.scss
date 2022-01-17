@@ -1,0 +1,94 @@
+.footer {
+  background-color: #0b0c10;
+  height: 30rem;
+
+  hr {
+    height: 2px;
+    color: white;
+  }
+
+  .our-services,
+  .right {
+    span {
+      h6 {
+        cursor: pointer;
+      }
+    }
+  }
+  .row {
+    font-size: 13px;
+    color: white;
+    justify-content: center;
+    .col-xl-5 {
+      margin-top: 3rem;
+      p {
+        left: 12px;
+        color: white;
+        margin-top: 15px;
+      }
+      hr {
+        color: #66902f;
+        height: 3px;
+        width: 65px;
+        opacity: 1;
+        margin-left: 20px;
+        margin-top: 35px;
+      }
+      img {
+        width: 50%;
+      }
+    }
+
+    .col-xl-7 {
+      margin-top: 5rem;
+
+      .row {
+        justify-content: center;
+      }
+      .col-xl-4 {
+        .services {
+          position: relative;
+          left: 35px;
+        }
+        h3 {
+          margin-bottom: 38px;
+        }
+        span {
+          display: flex;
+          justify-content: start;
+          color: white;
+          margin-top: 14px;
+
+          h6 {
+            color: white;
+            font-size: 14px;
+            font-weight: 300;
+          }
+          svg {
+            fill: white;
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    .sub-footer {
+      display: flex;
+      list-style: none;
+      color: white;
+      font-size: 12px;
+      li {
+        margin: 18px;
+      }
+    }
+    p {
+      color: white;
+      font-size: 12px;
+      position: relative;
+      left: 48px;
+      top: -16px;
+    }
+  }
+}
