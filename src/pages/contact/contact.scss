@@ -1,0 +1,114 @@
+.contact-page {
+  .contact-banner {
+    background-image: url("../../images/backgrounds/contact.jpg");
+    background-size: cover;
+    display: grid;
+    h1 {
+      color: white;
+      font-size: 70px;
+      text-align: center;
+      font-weight: 700;
+      margin-top: 9rem;
+      margin-bottom: 9rem;
+    }
+  }
+
+  .get-in-touch {
+    background-color: #121212;
+    display: grid;
+    h1 {
+      margin-top: 5rem;
+      color: white;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    h3 {
+      text-align: center;
+      margin-top: 5px !important;
+    }
+
+    .container {
+      .row {
+        text-align: center;
+        justify-content: center;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+
+        .col-xl-4 {
+          svg {
+            font-size: 4rem;
+            color: #66902f;
+          }
+          h3 {
+            text-align: center;
+            margin-top: 2rem !important;
+          }
+
+          p {
+            margin-top: 1rem;
+            color: white;
+            text-align: center;
+          }
+        }
+
+        .left-line {
+          border-left: 2px solid #66902f;
+        }
+      }
+    }
+  }
+
+  .send-us-message {
+    display: grid;
+    background-color: #0b0c10;
+
+    h1 {
+      margin-top: 5rem;
+      color: white;
+      text-align: center;
+      font-weight: 700;
+    }
+    h3 {
+      text-align: center;
+      margin-top: 5px !important;
+    }
+    .input-first-row,
+    .input-second-row,
+    .input-third-row {
+      display: flex;
+      justify-content: center;
+
+      input {
+        background: #121212;
+        outline: none;
+        border: #969393 solid 1px;
+        padding: 18px 0 18px 10px;
+        margin: 10px;
+        width: 43%;
+      }
+      textarea {
+        background: #121212;
+        outline: none;
+        border: #969393 solid 1px;
+        width: 87%;
+        height: 180px;
+        padding: 14px;
+      }
+    }
+
+    .input-third-row {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .map {
+    background: #121212;
+    display: grid;
+    iframe {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+      opacity: 0.7;
+    }
+  }
+}

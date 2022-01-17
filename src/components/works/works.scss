@@ -1,0 +1,58 @@
+.works {
+  background-color: #121212;
+  position: relative;
+  display: grid;
+  .container {
+    margin-top: 5rem;
+    .different-work {
+      position: relative;
+      .row {
+        .col-xl-4 {
+          margin-bottom: 4rem;
+
+          .img-wrapper {
+            overflow: hidden;
+          }
+
+          .inner-img {
+            transition: 0.7s;
+          }
+
+          .inner-img:hover {
+            transform: scale(1.2);
+          }
+
+          /* Other styling elements, that are not necessary for the example */
+
+          .img-wrapper {
+            display: inline-block;
+            box-sizing: border-box;
+            //border: 1px solid #000;
+          }
+
+          img {
+            width: 95%;
+            height: 100%;
+            cursor: pointer;
+          }
+
+          h1 {
+            text-transform: uppercase;
+            color: white;
+            font-size: 28px;
+            margin-top: 1rem;
+          }
+
+          h6 {
+            color: #638b2e;
+          }
+        }
+
+        .top {
+          position: relative;
+          top: -60px;
+        }
+      }
+    }
+  }
+}

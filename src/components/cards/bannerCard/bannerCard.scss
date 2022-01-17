@@ -1,0 +1,32 @@
+.middle-cards {
+  border: 2px solid #66902f;
+}
+.cards {
+  background: #121212;
+  padding: 38px 32px 65px 50px;
+  position: relative;
+  height: 24rem;
+  p {
+    color: white;
+  }
+  hr {
+    height: 3px;
+    width: 80px;
+    opacity: 1;
+    color: #66902f;
+  }
+  svg {
+    font-size: 45px;
+    fill: #66902f;
+    margin-bottom: 55px;
+  }
+  h4 {
+    color: white;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.cards:hover {
+  border: 2px solid #66902f;
+  transition: 0.2s;
+}

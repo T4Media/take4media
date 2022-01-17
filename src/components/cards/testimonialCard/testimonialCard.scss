@@ -1,0 +1,35 @@
+.testimonial-card {
+  position: relative;
+  padding: 75px 45px 75px 45px;
+  background-color: #0b0c10;
+  border: 1px solid gray;
+  .rating-stars {
+    margin-bottom: -120px;
+    svg {
+      fill: #fec42d;
+      font-size: 20px;
+      margin: 2px;
+    }
+  }
+
+  p {
+    margin-top: 2rem;
+    color: white;
+  }
+}
+
+.name {
+  position: relative;
+  bottom: -175px;
+  color: white;
+  font-weight: 100 !important;
+  text-transform: lowercase;
+  font-size: 18px;
+}
+.designation {
+  font-weight: 100 !important;
+  font-size: 14px;
+  position: relative;
+  bottom: -180px;
+  color: white;
+}

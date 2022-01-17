@@ -1,0 +1,15 @@
+.our-clients {
+  background-color: #0b0c10;
+  display: grid;
+
+  .container {
+    .row {
+      margin-bottom: 5rem;
+      .col {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
