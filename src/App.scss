@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #000000;
+}
+
+.App {
+  // cursor: url("https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/24/000000/external-tic-tac-a-brand-of-small-hard-mints-manufactured-by-the-italian-company-ferrero-food-shadow-tal-revivo.png"),
+  //   pointer !important;
+}
+
+.upper-arrow:hover {
+  // color: #ce6823 !important;
+  transform: scale(1.15);
+  transition: 0.6s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+.ReactCollapse--collapse {
+  transition: height 600ms;
+}
+
+/* square buttons */
+.rec.rec-arrow {
+  border-radius: 0;
+}
+/* round buttons on hover */
+.rec.rec-arrow:hover {
+  border-radius: 50%;
+}
+/* hide disabled buttons */
+.rec.rec-arrow:disabled {
+  visibility: hidden;
+}
+/* disable default outline on focused items */
+/* add custom outline on focused items */
+.rec-carousel-item:focus {
+  outline: none;
+  box-shadow: inset 0 0 1px 1px lightgrey;
+}
+
+.rec-arrow {
+  background-color: transparent !important;
+  color: #66902f !important;
+  box-shadow: none !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+.rec-arrow:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+.rec-dot_active {
+  margin: 5px !important;
+  background-color: #66902f !important;
+  box-shadow: 0 0 1px 3px rgb(102, 144, 47/ 1) !important;
+  border-radius: 50% !important;
+  outline: none !important;
+}
+
+.rec-dot {
+  box-shadow: 0 0 1px 2px rgb(255, 255, 255 / 0.5) !important;
+}
+html {
+  scroll-behavior: smooth !important;
+}

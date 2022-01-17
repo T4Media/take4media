@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+.meet-our-team {
+  display: grid;
+  .row {
+    h1 {
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      margin-top: 5rem;
+    }
+    h6 {
+      text-align: center;
+      color: #66902f;
+      margin-bottom: 5rem;
+    }
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Responsive columns */
+  @media screen and (max-width: 700px) {
+    .container {
+      width: 100%;
+    }
+
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+  /* Style the counter cards */
+}

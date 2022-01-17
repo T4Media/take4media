@@ -1,0 +1,186 @@
+.about-us {
+  .skills {
+    background-color: #121212;
+    display: grid;
+    .container {
+      margin-top: 5rem;
+      .row {
+        color: white;
+        .col-xl-6 {
+          h1 {
+            font-size: 48px;
+            margin-bottom: 2rem;
+          }
+          p {
+            margin-bottom: 2rem;
+            color: #66902f;
+          }
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .about-us-banner {
+    background-image: url("../../images/backgrounds/about-us.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      color: white;
+      margin-top: 8rem;
+      font-size: 58px;
+      margin-bottom: 12rem;
+    }
+  }
+
+  .qualities {
+    background-color: #0b0c10;
+    color: white;
+    display: grid;
+    .container {
+      .row {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+
+        .col-xl-4 {
+          svg {
+            font-size: 60px;
+            margin-bottom: 1rem;
+            color: #66902f;
+          }
+          h2 {
+            font-size: 25px;
+            margin-bottom: 1rem;
+          }
+          p {
+            padding-right: 65px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .solution {
+    background-color: #0b0c10;
+    display: grid;
+    .container {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+      color: white;
+      .row {
+        .col-xl-6 {
+          h1 {
+            font-size: 48px;
+            margin-bottom: 2rem;
+            margin-top: 5rem;
+          }
+          p {
+            margin-bottom: 2rem;
+          }
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .meet-our-team {
+    background-color: #121212;
+    display: grid;
+    .container {
+      margin-bottom: 5rem;
+      color: white;
+    }
+
+    .container-fluid {
+      .row {
+        margin-bottom: 5rem;
+        .col {
+          h1 {
+            font-size: 48px;
+            margin-bottom: 2rem;
+            margin-top: 5rem;
+          }
+          p {
+            margin-bottom: 2rem;
+          }
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes load {
+    from {
+      width: 0%;
+    }
+  }
+  @-webkit-keyframes load {
+    from {
+      width: 0%;
+    }
+  }
+  @-moz-keyframes load {
+    from {
+      width: 0%;
+    }
+  }
+  @-o-keyframes load {
+    from {
+      width: 0%;
+    }
+  }
+
+  .bar {
+    padding: 2px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  .bar::before {
+    content: attr(data-skill);
+    background-color: #f3b0ff;
+    display: inline-block;
+    padding: 5px 0 5px 10px;
+    border-radius: inherit;
+    animation: load 2s 0s;
+    -webkit-animation: load 2s 0s;
+    -moz-animation: load 2s 0s;
+    -o-animation: load 2s 0s;
+  }
+
+  .bar.front::before {
+    background-color: #ffcc33;
+  }
+  .bar.back::before {
+    background-color: #a6cfe3;
+  }
+
+  .bar.learning::before {
+    width: calc(30% - 10px);
+  }
+  .bar.basic::before {
+    width: calc(50% - 10px);
+  }
+  .bar.intermediate::before {
+    width: calc(70% - 10px);
+  }
+  .bar.advanced::before {
+    width: calc(90% - 10px);
+  }
+  .bar.expert::before {
+    width: calc(100% - 10px);
+  }
+}

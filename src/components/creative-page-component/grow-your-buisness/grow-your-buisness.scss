@@ -1,0 +1,49 @@
+.grow-your-buisness {
+  background-image: url("../../../images/backgrounds/project-in-mind.jpg");
+  background-attachment: fixed;
+  display: grid;
+  h1 {
+    color: white;
+    margin-top: 8rem;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  h6 {
+    text-align: center;
+    color: #66902f;
+    margin-top: 1rem;
+  }
+
+  .contact-bar {
+    margin-bottom: 8rem;
+    display: flex;
+    justify-content: center;
+    span {
+      margin: 30px;
+    }
+
+    h6 {
+      align-self: center;
+    }
+    .free-proposal {
+      background: #66902f;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+      svg {
+        margin-right: 5px;
+      }
+    }
+
+    .contact-no {
+      color: white;
+      border: 1px solid #66902f;
+      padding: 8px 16px;
+      border-radius: 5px;
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+}

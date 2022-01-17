@@ -1,0 +1,50 @@
+.our-strategy {
+  background: #121212;
+  display: grid;
+  h3 {
+    margin-bottom: 5rem;
+  }
+  .last-row {
+    margin-bottom: 5rem !important;
+    margin-top: 6rem !important;
+  }
+  .middle-row {
+    margin-top: 6rem !important;
+  }
+  .row {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    .col-xl-6 {
+      img {
+        width: 100%;
+      }
+      h6 {
+        text-align: left;
+        color: #66902f;
+      }
+      h1 {
+        text-align: left;
+        color: white;
+      }
+      p {
+        color: white;
+        font-size: 18px;
+        line-height: 40px;
+        margin-top: 2rem;
+      }
+
+      .row {
+        .col-xl-4 {
+          h6 {
+            text-align: center;
+            color: white;
+          }
+        }
+      }
+
+      .percentages {
+        margin-top: 8rem;
+      }
+    }
+  }
+}

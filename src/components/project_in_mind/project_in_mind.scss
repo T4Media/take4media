@@ -1,0 +1,26 @@
+.project-in-mind {
+  background-image: url("../../images/backgrounds/project-in-mind.jpg");
+  background-attachment: fixed;
+  h1 {
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .social-media-icons {
+    display: flex;
+    margin-top: 5rem;
+    justify-content: center;
+    svg {
+      cursor: pointer;
+      border: 2px solid #66902f;
+      margin: 15px;
+      font-size: 50px;
+      fill: white;
+      padding: 8px;
+      border-radius: 22px;
+    }
+  }
+}

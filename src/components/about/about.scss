@@ -1,0 +1,70 @@
+.about {
+  background-color: #0b0c10;
+
+  .r2 {
+    margin-top: 2rem !important;
+  }
+
+  .row {
+    margin-top: 5rem;
+    padding: 10px;
+
+    .col-xl-4 {
+      padding-left: 30px;
+    }
+
+    .bg-1,
+    .bg-2,
+    .bg-3 {
+      background-color: #0b0c10;
+      background-position: center center;
+      background-size: cover;
+      opacity: 1;
+      position: relative;
+
+      h2 {
+        color: white;
+        left: 24px;
+        font-weight: 600;
+        bottom: 50px;
+        position: absolute;
+        font-size: 24px;
+      }
+      p {
+        color: white;
+        left: 24px;
+        bottom: 12px;
+        position: absolute;
+        font-size: 16px;
+      }
+    }
+
+    h4 {
+      font-size: 20px;
+      color: white;
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
+    p {
+      color: gainsboro;
+    }
+
+    .bg-1 {
+      background-image: url("../../images/about/1.jpg");
+      height: 42rem;
+    }
+    .bg-2 {
+      background-image: url("../../images/about/2.jpg");
+      height: 20rem;
+    }
+    .bg-3 {
+      background-image: url("../../images/about/3.jpg");
+      height: 20rem;
+      margin-top: 32px;
+    }
+
+    .left-border {
+      border-left: 3px solid #66902f;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.social-media {
+  h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .testimonials {
+    .heading {
+      justify-content: center;
+      span {
+        display: none;
+      }
+    }
+    h3 {
+      text-align: center !important;
+      text-transform: lowercase;
+    }
+  }
+}
