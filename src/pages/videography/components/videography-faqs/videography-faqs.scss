@@ -1,0 +1,54 @@
+.faqs {
+  background-color: #121212;
+  display: grid;
+
+  .row {
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+
+    .col-lg-6 {
+      img {
+        width: 80% !important;
+      }
+    }
+
+    .pic-side {
+      text-align-last: center;
+    }
+
+    .comment {
+      border-bottom: 1px solid gainsboro;
+      padding-bottom: 1rem;
+      display: flex;
+      position: relative;
+      color: white;
+      margin-top: 1rem;
+      div {
+        margin: 10px;
+      }
+      .number {
+        font-size: 24px;
+        color: #66902f;
+      }
+      .text {
+        display: grid;
+        .question {
+          margin-bottom: 1rem;
+          position: relative;
+          top: 5px;
+        }
+
+        .answer {
+        }
+      }
+      svg {
+        color: #66902f;
+        font-size: 26px;
+        position: absolute;
+        right: 40px;
+        top: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,10 +1,9 @@
 import "../node_modules/font-awesome/css/font-awesome.min.css";
-import CreativePage from "./pages/creativePage/creative-page";
-import SocialMedia from "./pages/social-media/social-media";
+import AmazonCreativeServices from "./pages/amozon-creative-page/creative-page";
+import DigitalMediaMarketing from "./pages/digital-media-marketing/social-media";
 import ScrollToTop from "./components/common/scrollToTop";
 import { BsArrowUpCircleFill } from "react-icons/bs";
-import Services from "./pages/services/services";
-import { Route, Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
 import AboutUs from "./pages/about-us/about-us";
 import Contact from "./pages/contact/contact";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,31 +12,42 @@ import Work from "./pages/work/work";
 import Home from "./pages/home/home";
 import "./mediaquery.scss";
 import "./App.scss";
+import AmazonAMSServices from "./pages/amazon-ams-services/amazon-ams-services";
+import Videography from "./pages/videography/videography";
+import ProductListing from "./pages/product-listing/product-listing";
+import AmazonResearch from "./pages/amazon-research/amazon-research";
 
 function App() {
   return (
     <div className="App">
       <ScrollToTop />
       <Route exact path="/" component={Home} />
-      <Route path="/amazon-services" component={Services} />
-      <Route path="/social-media-services" component={SocialMedia} />
-      <Route path="/creative-services" component={CreativePage} />
+      <Route
+        path="/digital-media-marketing"
+        component={DigitalMediaMarketing}
+      />
+      <Route
+        path="/amazon-creative-services"
+        component={AmazonCreativeServices}
+      />
+      <Route path="/amazon-ams-services" component={AmazonAMSServices} />
+      <Route path="/videography" component={Videography} />
+
+      <Route path="/product-listing" component={ProductListing} />
+      <Route path="/amazon-research" component={AmazonResearch} />
+
       <Route path="/blog" component={Blog} />
       <Route path="/about-us" component={AboutUs} />
       <Route path="/contact-us" component={Contact} />
-
       <Route
         path="/work/photography"
         render={(props) => <Work photography={true} {...props} />}
       />
-
       <Route
         path="/work/architecture"
         render={(props) => <Work architecture={true} {...props} />}
       />
-
       <Route path="/work/design" render={(props) => <Work design={true} />} />
-
       <BsArrowUpCircleFill
         className="arrow-global"
         onClick={() => {

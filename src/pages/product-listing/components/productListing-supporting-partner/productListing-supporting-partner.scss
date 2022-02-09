@@ -1,0 +1,20 @@
+.creative-supporting-partner-section {
+  background-color: #121212;
+  display: grid;
+
+  .container {
+    .row {
+      .col {
+        img {
+          width: 85%;
+        }
+      }
+    }
+  }
+  h6 {
+    text-align: center;
+    color: white;
+    margin-top: 5rem;
+    color: #669021;
+  }
+}

@@ -3,7 +3,7 @@ import hero from "../../images/services/hero.png";
 import Fade from "react-reveal/Fade";
 import "./style.scss";
 
-const HowToUse = () => {
+const AMSHowToUse = () => {
   return (
     <div className="how-to-use">
       <Line top={35} />
@@ -60,4 +60,4 @@ const HowToUse = () => {
   );
 };
 
-export default HowToUse;
+export default AMSHowToUse;

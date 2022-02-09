@@ -1,0 +1,58 @@
+.creative-strategies {
+  background: #121212;
+  display: grid;
+
+  .last-row {
+    margin-bottom: 5rem !important;
+    margin-top: 6rem !important;
+  }
+  .middle-row {
+    margin-top: 6rem !important;
+  }
+  .row {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+
+    .brain-storming-section {
+      text-align-last: center;
+    }
+    .col-xl-6 {
+      .brain-storming {
+        width: 45% !important;
+        position: relative !important;
+        top: -28px !important;
+      }
+
+      .dual {
+        width: 55%;
+      }
+      h6 {
+        text-align: left;
+        color: #66902f;
+      }
+      h1 {
+        text-align: left;
+        color: white;
+      }
+      p {
+        color: white;
+        font-size: 18px;
+        line-height: 40px;
+        margin-top: 2rem;
+      }
+
+      .row {
+        .col-xl-4 {
+          h6 {
+            text-align: center;
+            color: white;
+          }
+        }
+      }
+
+      .percentages {
+        margin-top: 8rem;
+      }
+    }
+  }
+}

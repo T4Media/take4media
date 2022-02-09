@@ -107,13 +107,19 @@ const Navbar = () => {
               onMouseLeave={() => setDynamicClass("not-services-dropdown")}
             >
               <TiArrowSortedUp />
-              <NavLink to="/creative-services">Creative Services</NavLink>
-              <hr />
-              <NavLink to="/amazon-services">Amazon Services</NavLink>
-              <hr />
-              <NavLink to="/social-media-services">
-                Social Media Services
+              <NavLink to="/digital-media-marketing">
+                Digital Media Marketing
               </NavLink>
+              <hr />
+              <NavLink to="/videography">Videography</NavLink>
+              <hr />
+              <NavLink to="/amazon-creative-services">Amazon Creatives</NavLink>
+              <hr />
+              <NavLink to="/amazon-ams-services">Amazon AMS Services</NavLink>
+              <hr />
+              <NavLink to="/product-listing">Product Listing</NavLink>
+              <hr />
+              <NavLink to="/amazon-research">Amazon Research</NavLink>
             </ul>
           </ul>
           <div className="nav-icon" onClick={handleClick}>

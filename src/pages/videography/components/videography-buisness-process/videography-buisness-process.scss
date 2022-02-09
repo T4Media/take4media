@@ -1,0 +1,39 @@
+.creative-business-process {
+  background-color: #0b0c10;
+  display: grid;
+
+  .container {
+    .row {
+      margin-bottom: 8rem;
+
+      .col-xl-3 {
+        .processes {
+          color: white;
+
+          border-left: 2px solid #669021;
+          padding-left: 30px;
+          svg {
+            font-size: 75px;
+            color: #669021;
+            margin-bottom: 2rem;
+          }
+          h4 {
+            margin-bottom: 2rem;
+          }
+
+          p {
+            font-size: 14px;
+            margin-right: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  h3 {
+    margin-bottom: 3rem;
+  }
+  .service-card svg {
+    font-size: 75px;
+  }
+}

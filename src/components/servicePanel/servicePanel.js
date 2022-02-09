@@ -15,10 +15,10 @@ const ServicePanel = () => {
 
         <div className="row service-row">
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-            <Link to="/creative-services">
+            <Link to="/digital-media-marketing">
               <Fade big>
                 <ServiceCard
-                  heading="Creative Service"
+                  heading="Digital Media Marketing"
                   icon={<BsBarChartLine />}
                   paragraph=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
     luctus."
@@ -27,10 +27,10 @@ const ServicePanel = () => {
             </Link>
           </div>
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-            <Link to="/amazon-services">
+            <Link to="/amazon-research">
               <Fade delay={300} big>
                 <ServiceCard
-                  heading="Amazon Services"
+                  heading="Amazon Research and Development"
                   icon={<BsFillPencilFill />}
                   paragraph=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
     luctus."
@@ -39,10 +39,49 @@ const ServicePanel = () => {
             </Link>
           </div>
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-            <Link to="/social-media-services">
+            <Link to="/videography">
               <Fade delay={500} big>
                 <ServiceCard
-                  heading="Social Media Marketing"
+                  heading="Videography"
+                  icon={<ImUsers style={{ fill: "white" }} />}
+                  paragraph=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
+    luctus."
+                />
+              </Fade>
+            </Link>
+          </div>
+
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            <Link to="/amazon-creative-services">
+              <Fade delay={500} big>
+                <ServiceCard
+                  heading="Amazon Creatives"
+                  icon={<ImUsers style={{ fill: "white" }} />}
+                  paragraph=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
+    luctus."
+                />
+              </Fade>
+            </Link>
+          </div>
+
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            <Link to="/amazon-ams-services">
+              <Fade delay={500} big>
+                <ServiceCard
+                  heading="Amazon AMS Services"
+                  icon={<ImUsers style={{ fill: "white" }} />}
+                  paragraph=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
+    luctus."
+                />
+              </Fade>
+            </Link>
+          </div>
+
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            <Link to="/product-listing">
+              <Fade delay={500} big>
+                <ServiceCard
+                  heading="Product Listing"
                   icon={<ImUsers style={{ fill: "white" }} />}
                   paragraph=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
     luctus."
