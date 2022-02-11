@@ -1,10 +1,30 @@
-.amazon-services {
+.amazon-ams-services {
   background-color: #0b0c10;
   display: grid;
 
   .container {
     .row {
-      margin-bottom: 8rem;
+      margin-bottom: 5rem;
+      margin-top: 5rem;
+
+      .col-xl-6 {
+        .text-beside-image {
+          padding: 30px;
+
+          h2 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+          }
+          h6 {
+            color: #638b2e;
+            padding-right: 5px;
+          }
+        }
+        img {
+          width: 100%;
+        }
+      }
     }
   }
 

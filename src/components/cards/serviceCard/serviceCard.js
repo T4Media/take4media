@@ -7,9 +7,7 @@ const ServiceCard = (props) => {
       className="service-card"
     >
       {props.icon}
-      <h4
-      >{props.heading}</h4
-      >
+      <h4>{props.heading}</h4>
       <p>{props.paragraph}</p>
     </div>
   );

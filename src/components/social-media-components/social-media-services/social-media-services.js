@@ -23,7 +23,7 @@ const SocialMediaServices = () => {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={200} big>
               <ServiceCard
-                heading="Research"
+                heading="Google Ads"
                 icon={<GiArchiveResearch />}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
@@ -32,7 +32,7 @@ const SocialMediaServices = () => {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={300} big>
               <ServiceCard
-                heading="Social media"
+                heading="Facebook/Instagram Advertising"
                 icon={<MdSocialDistance />}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
@@ -41,7 +41,7 @@ const SocialMediaServices = () => {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={400} big>
               <ServiceCard
-                heading="All Paid Media Buying"
+                heading="Pinterest Advertising"
                 icon={<MdPaid />}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
@@ -50,7 +50,7 @@ const SocialMediaServices = () => {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={500} big>
               <ServiceCard
-                heading="Website SEO"
+                heading="Taboola advertising"
                 icon={<MdScreenSearchDesktop />}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
@@ -59,7 +59,7 @@ const SocialMediaServices = () => {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={600} big>
               <ServiceCard
-                heading="Email Marketing"
+                heading="Outbrain advertising"
                 icon={<MdMarkEmailUnread />}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
@@ -68,7 +68,7 @@ const SocialMediaServices = () => {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={700} big>
               <ServiceCard
-                heading="Product Launching"
+                heading="Social Media Audit"
                 icon={<MdOutlineProductionQuantityLimits />}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
@@ -78,7 +78,7 @@ const SocialMediaServices = () => {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={800} big>
               <ServiceCard
-                heading="Public Relations"
+                heading="Account Management"
                 icon={<GiPublicSpeaker />}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
@@ -87,7 +87,16 @@ const SocialMediaServices = () => {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={900} big>
               <ServiceCard
-                heading="Influencer Marketing"
+                heading="Market Analysis"
+                icon={<SiInfluxdb />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
+              />
+            </Fade>
+          </div>
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <Fade duration={2000} delay={900} big>
+              <ServiceCard
+                heading="Ongoing Analysis"
                 icon={<SiInfluxdb />}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />

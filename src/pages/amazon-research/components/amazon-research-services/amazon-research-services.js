@@ -20,7 +20,7 @@ const AmazonResearchService = () => {
             <Fade duration={2000} delay={300} big>
               <PlusDetail
                 icon={<GiBrain />}
-                heading="All Creatives"
+                heading="Product Audit"
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id
               arcu luctus."
               />
@@ -30,7 +30,7 @@ const AmazonResearchService = () => {
             <Fade duration={2000} delay={400} big>
               <PlusDetail
                 icon={<MdAnimation />}
-                heading="Animation"
+                heading="Category Research"
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id
               arcu luctus."
               />
@@ -40,7 +40,7 @@ const AmazonResearchService = () => {
             <Fade duration={2000} delay={500} big>
               <PlusDetail
                 icon={<BsTextParagraph />}
-                heading="Branding Content Creation"
+                heading="Product Hunting"
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id
               arcu luctus."
               />
@@ -50,7 +50,7 @@ const AmazonResearchService = () => {
             <Fade duration={2000} delay={600} big>
               <PlusDetail
                 icon={<FiMonitor />}
-                heading="TVC"
+                heading="Existing Product/Listing Development"
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id
               arcu luctus."
               />

@@ -87,3 +87,27 @@ a {
 html {
   scroll-behavior: smooth !important;
 }
+
+.MuiButtonBase-root {
+  color: white !important;
+  h4 {
+    color: white !important;
+  }
+  p {
+    color: white !important;
+  }
+}
+
+.css-ahj2mt-MuiTypography-root {
+  h4 {
+    color: white !important;
+  }
+  p {
+    color: white !important;
+    font-size: 15px !important;
+  }
+}
+
+.Mui-selected {
+  border-bottom: 2px solid #638b2e !important;
+}

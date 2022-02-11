@@ -1,11 +1,16 @@
-import PlusDetail from "./../plus-detail/plus-detail";
 import Heading from "./../../common/heading/heading";
-import { BsTextParagraph } from "react-icons/bs";
-import { MdAnimation } from "react-icons/md";
-import { FiMonitor } from "react-icons/fi";
-import { GiBrain } from "react-icons/gi";
 import Fade from "react-reveal/Fade";
 import "./creative-services.scss";
+import { GiArchiveResearch, GiPublicSpeaker } from "react-icons/gi";
+import {
+  MdSocialDistance,
+  MdPaid,
+  MdScreenSearchDesktop,
+  MdMarkEmailUnread,
+  MdOutlineProductionQuantityLimits,
+} from "react-icons/md";
+import { SiInfluxdb } from "react-icons/si";
+import ServiceCard from "./../../cards/serviceCard/serviceCard";
 
 const CreativeServices = () => {
   return (
@@ -16,43 +21,85 @@ const CreativeServices = () => {
           subHeading="We Provide the best service to our customers."
         />
         <div className="row">
-          <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 service-1">
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <Fade duration={2000} delay={200} big>
+              <ServiceCard
+                heading="Product Shoot"
+                icon={<GiArchiveResearch />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
+              />
+            </Fade>
+          </div>
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={300} big>
-              <PlusDetail
-                icon={<GiBrain />}
-                heading="All Creatives"
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id
-              arcu luctus."
+              <ServiceCard
+                heading="Listing Main Images"
+                icon={<MdSocialDistance />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
             </Fade>
           </div>
-          <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 service-2 border-left">
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={400} big>
-              <PlusDetail
-                icon={<MdAnimation />}
-                heading="Animation"
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id
-              arcu luctus."
+              <ServiceCard
+                heading="Image Testing & Revision"
+                icon={<MdPaid />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
             </Fade>
           </div>
-          <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 service-3 border-top">
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={500} big>
-              <PlusDetail
-                icon={<BsTextParagraph />}
-                heading="Branding Content Creation"
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id
-              arcu luctus."
+              <ServiceCard
+                heading="A+ Content Designing"
+                icon={<MdScreenSearchDesktop />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
             </Fade>
-          </div>{" "}
-          <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 service-4 border-left border-top">
+          </div>
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <Fade duration={2000} delay={600} big>
-              <PlusDetail
-                icon={<FiMonitor />}
-                heading="TVC"
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id
-              arcu luctus."
+              <ServiceCard
+                heading="Brand Story Creation"
+                icon={<MdMarkEmailUnread />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
+              />
+            </Fade>
+          </div>
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <Fade duration={2000} delay={700} big>
+              <ServiceCard
+                heading="Storefront Banner Designing"
+                icon={<MdOutlineProductionQuantityLimits />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
+              />
+            </Fade>
+          </div>
+
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <Fade duration={2000} delay={800} big>
+              <ServiceCard
+                heading="POST Banner Designing"
+                icon={<GiPublicSpeaker />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
+              />
+            </Fade>
+          </div>
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <Fade duration={2000} delay={900} big>
+              <ServiceCard
+                heading="Display Ad Designing"
+                icon={<SiInfluxdb />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
+              />
+            </Fade>
+          </div>
+          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <Fade duration={2000} delay={900} big>
+              <ServiceCard
+                heading="Image Editing/Finishing"
+                icon={<SiInfluxdb />}
+                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
               />
             </Fade>
           </div>
