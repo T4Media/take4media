@@ -3,14 +3,31 @@ import Button from "./../common/button/button";
 import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import "./about.scss";
+import { useEffect, useState } from "react";
+import { client } from "./../../client";
 
 const About = () => {
+  const [about, setAbout] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "homeAbout",
+        select: "fields",
+      })
+      .then((res) => {
+        setAbout(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="about" id="about">
       <div className="container">
         <Heading
           heading="About."
-          subHeading="WE ARE MORE THAN DIGITAL AGENCY"
+          subHeading="We build brand popularity and drive product sales for your Amazon presence."
         />
 
         <div className="row r1">
@@ -18,7 +35,7 @@ const About = () => {
             <div className="col-xl-6 col-md-6">
               <div className="bg-1">
                 <h2>Team Work</h2>
-                <p>Committed and creative</p>
+                <p>Coordinated Collaboration and Cooperation.</p>
               </div>
             </div>
           </Fade>
@@ -26,39 +43,33 @@ const About = () => {
             <div className="col-xl-6 col-md-6">
               <div className="bg-2">
                 <h2>Philosophy</h2>
-                <p>Trust pays off</p>
+                <p>
+                  Unregulated Imagination opens up new and experimental
+                  opportunities
+                </p>
               </div>
 
               <div className="bg-3">
                 <h2>Office</h2>
-                <p>Somewhere on earth</p>
+                <p>Operating intact in the earthly sphere.</p>
               </div>
             </div>
           </Fade>
         </div>
 
         <div className="row r2">
-          <div className="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-            <h4>Who we are</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-4 col-sm-4 left-border">
-            <h4>Our philosophy</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-4 col-sm-4 left-border">
-            <h4>How we work</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-          </div>
+          {about &&
+            about.items.map((a, i) => (
+              <div
+                className={
+                  `col-xl-4 col-lg-4 col-md-4 col-sm-4` +
+                  (i > 0 ? " left-border" : "")
+                }
+              >
+                <h4>{a.fields.heading}</h4>
+                <p>{a.fields.text}</p>
+              </div>
+            ))}
         </div>
       </div>
 

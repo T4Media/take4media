@@ -16,8 +16,26 @@ import AmazonAMSServices from "./pages/amazon-ams-services/amazon-ams-services";
 import Videography from "./pages/videography/videography";
 import ProductListing from "./pages/product-listing/product-listing";
 import AmazonResearch from "./pages/amazon-research/amazon-research";
+import { useEffect, useState } from "react";
+import { client } from "./client";
+import { addData } from "./services/slices/dataSlice";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const [content, setContent] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    client
+      .getEntries()
+      .then((res) => {
+        dispatch(addData(res));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="App">
       <ScrollToTop />

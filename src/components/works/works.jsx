@@ -9,53 +9,58 @@ import Line from "../common/line/line";
 import "./works.scss";
 import Slide from "react-reveal/Slide";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { client } from "./../../client";
 
 const Works = () => {
+  const [work, setWork] = useState();
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "work",
+        select: "fields",
+      })
+      .then((res) => {
+        setWork(res.items);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="works" id="work">
       <div className="container">
-        <Heading heading="Works." subHeading="THINGS WE'VE MADE" />
+        <Heading heading="Works." subHeading="We initiate our expertise in:" />
       </div>
       <div className="container">
         <div className="different-work">
           <div className="row">
-            <Slide bottom>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <div class="img-wrapper">
-                  <Link to="/work/architecture">
-                    <img className="inner-img" src={img_1} alt="" />
-                  </Link>
-                </div>
-                <h1>Architecture</h1>
-                <h6>Giving a garbage a good name</h6>
-              </div>
-            </Slide>
-            <Slide bottom>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 top">
-                <div class="img-wrapper">
-                  <Link to="/work/photography">
-                    <img className="inner-img" src={img_2} alt="" />
-                  </Link>
-                </div>
-                <h1>Photography</h1>
-                <h6>Humanizing Telecom Marketing</h6>
-              </div>
-            </Slide>
-            <Slide bottom>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <div class="img-wrapper">
-                  <Link to="/work/design">
-                    <img className="inner-img" src={img_3} alt="" />
-                  </Link>
-                </div>
-                <h1> Design</h1>
-                <h6>
-                  Giving a name and face to a brand
-                  <br />
-                  Hiding in plain sight
-                </h6>
-              </div>
-            </Slide>
+            {work &&
+              work.map((wrk, i) => (
+                <Slide bottom>
+                  <div
+                    className={
+                      `col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12` +
+                      (i == 1 ? " top" : " ")
+                    }
+                  >
+                    <div class="img-wrapper">
+                      <Link to="/work/architecture">
+                        <img
+                          className="inner-img"
+                          src={wrk.fields.image.fields.file.url}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                    <h1>{wrk.fields.name}</h1>
+                    <h6>{wrk.fields.text}</h6>
+                  </div>
+                </Slide>
+              ))}
           </div>
         </div>
       </div>

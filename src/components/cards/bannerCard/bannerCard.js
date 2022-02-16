@@ -7,10 +7,7 @@ const BannerCard = (props) => {
       <h4>{props.name}</h4>
       <hr />
       <br />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-        tellus.​
-      </p>
+      <p>{props.text}</p>
     </div>
   );
 };

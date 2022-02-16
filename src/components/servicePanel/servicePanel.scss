@@ -1,7 +1,13 @@
 .services {
   background-color: #0b0c10;
+  display: flex;
+
+  .heading-thatis-common {
+    margin-top: 12rem;
+  }
   .service-row {
     justify-content: center;
     margin-top: 0rem;
+    margin-bottom: 5rem;
   }
 }

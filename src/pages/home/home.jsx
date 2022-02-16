@@ -8,17 +8,20 @@ import Navbar from "./../../components/navbar/navbar";
 import Footer from "./../../components/footer/footer";
 import About from "./../../components/about/about";
 import Works from "./../../components/works/works";
+import { useSelector } from "react-redux";
 import Slide from "react-reveal/Slide";
 import "./home.scss";
 
 const Home = () => {
+  const data = useSelector((state) => state.dataReducer.data);
+  console.log(data);
   return (
     <div className="home">
       <div className="banner">
         <Navbar />
-        <BannerHeading />
+        <BannerHeading data={data && data.items[10].fields} />
         <Slide bottom delay={500} duration={1200}>
-          <CardPanel />
+          <CardPanel data={data && data.items[10].fields} />
         </Slide>
 
         <br />

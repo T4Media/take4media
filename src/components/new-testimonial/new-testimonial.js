@@ -3,8 +3,26 @@ import quote from "../../images/icons/1.png";
 import Line from "../common/line/line";
 import Fade from "react-reveal/Fade";
 import "./new-testimonial.scss";
+import { useEffect, useState } from "react";
+import { client } from "./../../client";
 
 const NewTestimonial = () => {
+  const [testimonials, setTestimonials] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "testimonials",
+        select: "fields",
+      })
+      .then((res) => {
+        setTestimonials(res);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="new-testimonial">
       <Fade duration={2000} delay={300} big>
@@ -12,62 +30,19 @@ const NewTestimonial = () => {
           <img src={quote} alt="" />
         </center>
         <h1>Testimonials</h1>
-        <h6> We develop enterprise-grade software solutions for businesses.</h6>
+        <h6>We prioritize your brand enrichment on Amazon</h6>
 
         <div className="container">
           <Carousel itemsToShow={1} disableArrowsOnEnd={false}>
-            <div>
-              <div className="testimonial">
-                <p>
-                  “Willing to accommodate nonprofit budgets, Cubix brought their
-                  robust experience to the project. They checked in
-                  consistently, and were communicative, easy to reach, and
-                  responsive. The Android app shows over 500 downloads to date.”
-                </p>
-
-                <h4>Melissa Steward, VP of Marketing</h4>
-                <h5>National Fatherhood Initiative</h5>
-              </div>
-            </div>
-            <div>
-              <div className="testimonial">
-                <p>
-                  “Willing to accommodate nonprofit budgets, Cubix brought their
-                  robust experience to the project. They checked in
-                  consistently, and were communicative, easy to reach, and
-                  responsive. The Android app shows over 500 downloads to date.”
-                </p>
-
-                <h4>Melissa Steward, VP of Marketing</h4>
-                <h5>National Fatherhood Initiative</h5>
-              </div>
-            </div>
-            <div>
-              <div className="testimonial">
-                <p>
-                  “Willing to accommodate nonprofit budgets, Cubix brought their
-                  robust experience to the project. They checked in
-                  consistently, and were communicative, easy to reach, and
-                  responsive. The Android app shows over 500 downloads to date.”
-                </p>
-
-                <h4>Melissa Steward, VP of Marketing</h4>
-                <h5>National Fatherhood Initiative</h5>
-              </div>
-            </div>
-            <div>
-              <div className="testimonial">
-                <p>
-                  “Willing to accommodate nonprofit budgets, Cubix brought their
-                  robust experience to the project. They checked in
-                  consistently, and were communicative, easy to reach, and
-                  responsive. The Android app shows over 500 downloads to date.”
-                </p>
-
-                <h4>Melissa Steward, VP of Marketing</h4>
-                <h5>National Fatherhood Initiative</h5>
-              </div>
-            </div>
+            {testimonials &&
+              testimonials.items.map((t) => (
+                <div>
+                  <div className="testimonial">
+                    <p>{t.fields.comment.content[0].content[0].value} </p>
+                    <h4>{t.fields.name}</h4>
+                  </div>
+                </div>
+              ))}
           </Carousel>
         </div>
       </Fade>

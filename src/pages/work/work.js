@@ -10,12 +10,17 @@ import work7 from "../../images/our-work/7.jpg";
 import work8 from "../../images/our-work/8.jpg";
 import work9 from "../../images/our-work/9.jpg";
 import work10 from "../../images/our-work/10.jpg";
+import { client } from "../../client";
+import { addData } from "../../services/slices/dataSlice";
+import { useDispatch } from "react-redux";
 
 import Footer from "../../components/footer/footer";
 import { useState, useEffect } from "react";
 import Slide from "react-reveal/Slide";
 
 const Work = (props) => {
+  const dispatch = useDispatch();
+
   const portfolio = [
     { img: work1, type: "photography" },
     { img: work3, type: "architecture" },
@@ -35,8 +40,6 @@ const Work = (props) => {
     photography: false,
     design: false,
   });
-
-  console.log(props);
 
   useEffect(() => {
     let temp = { ...menus };
