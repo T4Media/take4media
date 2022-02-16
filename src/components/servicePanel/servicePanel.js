@@ -35,7 +35,8 @@ const ServicePanel = (props) => {
           {services &&
             services.services.map((s) => (
               <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                <Link to="/digital-media-marketing">
+                {console.log(s)}
+                <Link to={s.slug}>
                   <Fade big>
                     <ServiceCard
                       heading={s.serviceName}

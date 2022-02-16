@@ -6,8 +6,28 @@ import Navbar from "../../navbar/navbar";
 import Slide from "react-reveal/Slide";
 import Fade from "react-reveal/Fade";
 import "./creative-banner.scss";
+import { useEffect, useState } from "react";
+import { client } from "./../../../client";
 
 const CreativeBanner = () => {
+  const [creativeBanner, setCreativeBanner] = useState();
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "creativeBanner",
+        select: "fields",
+      })
+      .then((res) => {
+        setCreativeBanner(res.items[0].fields);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log();
+
   return (
     <div className="creative-banner ">
       <Navbar />
@@ -16,10 +36,10 @@ const CreativeBanner = () => {
         <div className="row">
           <Slide left duration={1200}>
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 heading-coloumn">
-              <h3>Pakistan’s #1 Rated Digital Marketing Agency.</h3>
+              <h3>{creativeBanner && creativeBanner.subHeading}</h3>
 
               <h1 className="over-write">
-                Outsmart the competition with best in class creative strategies.
+                {creativeBanner && creativeBanner.mainHeading}
               </h1>
             </div>
           </Slide>

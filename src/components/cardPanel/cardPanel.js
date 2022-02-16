@@ -5,7 +5,6 @@ import { GiBrain } from "react-icons/gi";
 import "./cardPanel.scss";
 
 const CardPanel = (props) => {
-  console.log(props.data);
   return (
     <div className="container upper-gap">
       <div className="row cards-panel">

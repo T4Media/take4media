@@ -19,9 +19,9 @@ const Home = () => {
     <div className="home">
       <div className="banner">
         <Navbar />
-        <BannerHeading data={data && data.items[10].fields} />
+        <BannerHeading data={data && data.items[28].fields} />
         <Slide bottom delay={500} duration={1200}>
-          <CardPanel data={data && data.items[10].fields} />
+          <CardPanel data={data && data.items[28].fields} />
         </Slide>
 
         <br />
