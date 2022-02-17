@@ -71,6 +71,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .services .heading-thatis-common {
+    margin-top: 65rem;
+  }
   .social-media .faqs .row .col-lg-6 img {
     width: 85% !important;
     position: relative !important;
@@ -224,6 +227,10 @@
 }
 
 @media (min-width: 576px) and (max-width: 766px) {
+  .services .heading-thatis-common {
+    margin-top: 70rem !important;
+  }
+
   .top {
     position: relative !important;
     top: 0px !important;
@@ -393,6 +400,10 @@
 }
 
 @media (max-width: 575px) {
+  .services .heading-thatis-common {
+    margin-top: 40rem !important;
+  }
+
   .works .container .different-work .row .col-xl-4 {
     margin-bottom: 4rem !important;
     text-align: -webkit-center !important;
