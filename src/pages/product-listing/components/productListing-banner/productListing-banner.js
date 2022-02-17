@@ -6,8 +6,28 @@ import Fade from "react-reveal/Fade";
 import "./productListing-banner.scss";
 import Navbar from "./../../../../components/navbar/navbar";
 import Button from "./../../../../components/common/button/button";
+import { client } from "./../../../../client";
+import { useEffect, useState } from "react";
 
 const ProductListingBanner = () => {
+  const [productListingBanner, setProductListingBanner] = useState();
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "productListBanner",
+        select: "fields",
+      })
+      .then((res) => {
+        setProductListingBanner(res.items[0].fields);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(productListingBanner);
+
   return (
     <div className="creative-banner ">
       <Navbar />
@@ -16,10 +36,12 @@ const ProductListingBanner = () => {
         <div className="row">
           <Slide left duration={1200}>
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 heading-coloumn">
-              <h3>Pakistan’s #1 Rated Digital Marketing Agency.</h3>
+              <h3>
+                {productListingBanner && productListingBanner.smallHeading}
+              </h3>
 
               <h1 className="over-write">
-                Outsmart the competition with best in Product Listing
+                {productListingBanner && productListingBanner.bigHeading}
               </h1>
             </div>
           </Slide>
