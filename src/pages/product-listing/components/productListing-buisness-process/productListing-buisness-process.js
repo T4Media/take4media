@@ -33,17 +33,18 @@ const ProductListingBusinessProcess = () => {
         />
 
         <div className="row">
-          {productListProcess.map((plp) => (
-            <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 process-1">
-              <Fade duration={2000} delay={200} big>
-                <div className="processes">
-                  <MdAnimation />
-                  <h4>{plp.fields.heading}</h4>
-                  <p>{plp.fields.subHeading}</p>
-                </div>
-              </Fade>
-            </div>
-          ))}
+          {productListProcess &&
+            productListProcess.map((plp) => (
+              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 process-1">
+                <Fade duration={2000} delay={200} big>
+                  <div className="processes">
+                    <MdAnimation />
+                    <h4>{plp.fields.heading}</h4>
+                    <p>{plp.fields.subHeading}</p>
+                  </div>
+                </Fade>
+              </div>
+            ))}
         </div>
       </div>
     </div>
