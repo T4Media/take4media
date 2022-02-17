@@ -6,8 +6,28 @@ import Fade from "react-reveal/Fade";
 import "./videography-banner.scss";
 import Navbar from "./../../../../components/navbar/navbar";
 import Button from "./../../../../components/common/button/button";
+import { useEffect, useState } from "react";
+import { client } from "./../../../../client";
 
 const VideographyBanner = () => {
+  const [videographyBanner, setVideographyBanner] = useState();
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "videographyBanner",
+        select: "fields",
+      })
+      .then((res) => {
+        setVideographyBanner(res.items[0].fields);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(videographyBanner);
+
   return (
     <div className="creative-banner ">
       <Navbar />
@@ -16,10 +36,10 @@ const VideographyBanner = () => {
         <div className="row">
           <Slide left duration={1200}>
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 heading-coloumn">
-              <h3>Pakistan’s #1 Rated Digital Marketing Agency.</h3>
+              <h3>{videographyBanner && videographyBanner.smallHeading}</h3>
 
               <h1 className="over-write">
-                Outsmart the competition with best in class Videography
+                {videographyBanner && videographyBanner.bigHeading}
               </h1>
             </div>
           </Slide>

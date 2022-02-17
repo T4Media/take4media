@@ -9,10 +9,28 @@ import {
   MdMarkEmailUnread,
   MdOutlineProductionQuantityLimits,
 } from "react-icons/md";
-import { SiInfluxdb } from "react-icons/si";
 import ServiceCard from "./../../../../components/cards/serviceCard/serviceCard";
+import { client } from "./../../../../client";
+import { useEffect, useState } from "react";
 
 const VideographyServices = () => {
+  const [videographyServices, setVideographyServices] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "videographyServices",
+        select: "fields",
+      })
+      .then((res) => {
+        setVideographyServices(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(videographyServices);
+
   return (
     <div className="creative-services">
       <div className="container">
@@ -22,60 +40,18 @@ const VideographyServices = () => {
         />
 
         <div className="row">
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={200} big>
-              <ServiceCard
-                heading="Listing Video"
-                icon={<GiArchiveResearch />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={300} big>
-              <ServiceCard
-                heading="Video Ads"
-                icon={<MdSocialDistance />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={400} big>
-              <ServiceCard
-                heading="Video Editing"
-                icon={<MdPaid />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={500} big>
-              <ServiceCard
-                heading="360 Video"
-                icon={<MdScreenSearchDesktop />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={600} big>
-              <ServiceCard
-                heading="Storefront Video"
-                icon={<MdMarkEmailUnread />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={700} big>
-              <ServiceCard
-                heading="TikTok Video"
-                icon={<MdOutlineProductionQuantityLimits />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
-          </div>
+          {videographyServices &&
+            videographyServices.map((vs) => (
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <Fade duration={2000} delay={200} big>
+                  <ServiceCard
+                    heading={vs.fields.serviceName}
+                    icon={<GiArchiveResearch />}
+                    paragraph={vs.fields.serviceDescription}
+                  />
+                </Fade>
+              </div>
+            ))}
         </div>
       </div>
     </div>

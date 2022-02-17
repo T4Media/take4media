@@ -2,40 +2,35 @@ import getHelp from "../../../../images/services/help_from_experts.svg";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { Collapse } from "react-collapse";
 import Fade from "react-reveal/Fade";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./videography-faqs.scss";
 import Heading from "./../../../../components/common/heading/heading";
+import { client } from "./../../../../client";
 
 const VideographyFaqs = () => {
-  const [comment, setComment] = useState([
-    {
-      number: "01",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: true,
-    },
-    {
-      number: "02",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: false,
-    },
-    {
-      number: "03",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: false,
-    },
-  ]);
+  const [videographyFaqs, setVideographyFaqs] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "videographyFaqs",
+        select: "fields",
+      })
+      .then((res) => {
+        setVideographyFaqs(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleCollapse = (c) => {
-    const temp = [...comment];
+    const temp = [...videographyFaqs];
     temp.map((com) => {
-      if (com.number === c.number) {
-        com.isOpened = !com.isOpened;
+      if (com.fields.number === c.fields.number) {
+        com.fields.isOpen = !com.fields.isOpen;
       }
     });
-    setComment(temp);
+    setVideographyFaqs(temp);
   };
 
   return (
@@ -49,24 +44,29 @@ const VideographyFaqs = () => {
         <div className="row">
           <Fade duration={2000} delay={200} big>
             <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 ">
-              {comment.map((c) => (
-                <div className="comment">
-                  <div className="number">{c.number}</div>
-                  <div className="text">
-                    <span className="question">Hows Work This antivirus?</span>
+              {videographyFaqs &&
+                videographyFaqs.map((c) => (
+                  <div className="comment">
+                    <div className="number">{c.fields.numbers}</div>
+                    <div className="text">
+                      <span className="question">
+                        <span className="question">{c.fields.question}</span>
+                      </span>
 
-                    <Collapse isOpened={c.isOpened}>
-                      <span className="answer">{c.comment}</span>
-                    </Collapse>
+                      <Collapse isOpened={c.fields.isOpen}>
+                        <span className="answer">
+                          {c.fields.answer.content[0].content[0].value}
+                        </span>
+                      </Collapse>
+                    </div>
+
+                    {c.isOpen ? (
+                      <AiFillCaretUp onClick={() => handleCollapse(c)} />
+                    ) : (
+                      <AiFillCaretDown onClick={() => handleCollapse(c)} />
+                    )}
                   </div>
-
-                  {c.isOpened ? (
-                    <AiFillCaretUp onClick={() => handleCollapse(c)} />
-                  ) : (
-                    <AiFillCaretDown onClick={() => handleCollapse(c)} />
-                  )}
-                </div>
-              ))}
+                ))}
             </div>
           </Fade>
           <Fade duration={2000} delay={300} big>

@@ -7,7 +7,26 @@ import { MdEmail } from "react-icons/md";
 import { BsTelephoneFill } from "react-icons/bs";
 import Slide from "react-reveal/Slide";
 import Fade from "react-reveal/Fade";
+import { useEffect, useState } from "react";
+import { client } from "./../../../client";
+
 const SoicalMediaBanner = () => {
+  const [socialMediaBanner, setSocialMediaBanner] = useState();
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "socialMediaBanner",
+        select: "fields",
+      })
+      .then((res) => {
+        setSocialMediaBanner(res.items[0].fields);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="social-media-banner">
       <Navbar />
@@ -16,11 +35,10 @@ const SoicalMediaBanner = () => {
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 heading-column">
             <Slide left duration={1500}>
-              <h3>America’s #1 Rated Digital Marketing Agency.</h3>
+              <h3>{socialMediaBanner && socialMediaBanner.smallHeading}</h3>
 
               <h1 className="over-write">
-                Outsmart the competition with best in class digital marketing
-                services
+                {socialMediaBanner && socialMediaBanner.bigHeading}
               </h1>
             </Slide>
             <img src={allLogos} alt="" />

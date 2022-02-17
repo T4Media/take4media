@@ -26,8 +26,6 @@ const CreativeBanner = () => {
       });
   }, []);
 
-  console.log();
-
   return (
     <div className="creative-banner ">
       <Navbar />

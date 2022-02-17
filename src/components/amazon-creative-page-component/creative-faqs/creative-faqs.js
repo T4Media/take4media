@@ -23,29 +23,6 @@ const CreativeFaqs = () => {
       });
   }, []);
 
-  console.log(creativeFaqs);
-
-  const [comment, setComment] = useState([
-    {
-      number: "01",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: true,
-    },
-    {
-      number: "02",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: false,
-    },
-    {
-      number: "03",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: false,
-    },
-  ]);
-
   const handleCollapse = (c) => {
     const temp = [...creativeFaqs];
     temp.map((com) => {

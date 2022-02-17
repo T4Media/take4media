@@ -5,8 +5,27 @@ import "./videography-buisness-process.scss";
 import { GiBrain } from "react-icons/gi";
 import Fade from "react-reveal/Fade";
 import Heading from "./../../../../components/common/heading/heading";
+import { client } from "./../../../../client";
+import { useEffect, useState } from "react";
 
 const VideographyBuisnessProcess = () => {
+  const [videographyProcess, setVideographyProcess] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "videographyProcess",
+        select: "fields",
+      })
+      .then((res) => {
+        setVideographyProcess(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(videographyProcess);
+
   return (
     <div className="creative-business-process">
       <div className="container">
@@ -16,55 +35,18 @@ const VideographyBuisnessProcess = () => {
         />
 
         <div className="row">
-          <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 process-1">
-            <Fade duration={2000} delay={200} big>
-              <div className="processes">
-                <MdAnimation />
-                <h4>Grow</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry.
-                </p>
-              </div>{" "}
-            </Fade>
-          </div>
-          <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 process-2">
-            <Fade duration={2000} delay={300} big>
-              <div className="processes">
-                <GiBrain />
-                <h4>Monetize</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry.
-                </p>
+          {videographyProcess &&
+            videographyProcess.items.map((vp) => (
+              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 process-1">
+                <Fade duration={2000} delay={200} big>
+                  <div className="processes">
+                    <MdAnimation />
+                    <h4>{vp.fields.heading}</h4>
+                    <p>{vp.fields.paragraph}</p>
+                  </div>
+                </Fade>
               </div>
-            </Fade>
-          </div>
-          <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 process-3">
-            <Fade duration={2000} delay={400} big>
-              <div className="processes">
-                <BsTextParagraph />
-                <h4>Engage</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry.
-                </p>
-              </div>
-            </Fade>
-          </div>
-
-          <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 process-4">
-            <Fade duration={2000} delay={500} big>
-              <div className="processes">
-                <FiMonitor />
-                <h4>Influence</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry.
-                </p>
-              </div>
-            </Fade>
-          </div>
+            ))}
         </div>
       </div>
     </div>

@@ -3,38 +3,36 @@ import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 import Heading from "./../../common/heading/heading";
 import { Collapse } from "react-collapse";
 import "./social-media-faqs.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Fade from "react-reveal/Fade";
+import { client } from "./../../../client";
 
 const SocialMediaFaqs = () => {
-  const [comment, setComment] = useState([
-    {
-      number: "01",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: true,
-    },
-    {
-      number: "02",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: false,
-    },
-    {
-      number: "03",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: false,
-    },
-  ]);
+  const [socailMediaFaqs, setSocailMediaFaqs] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "socialMediaFaqs",
+        select: "fields",
+      })
+      .then((res) => {
+        setSocailMediaFaqs(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(SocialMediaFaqs);
 
   const handleCollapse = (c) => {
-    const temp = [...comment];
+    const temp = [...socailMediaFaqs];
     temp.map((com) => {
-      if (com.number === c.number) {
-        com.isOpened = !com.isOpened;
+      if (com.fields.number === c.fields.number) {
+        com.fields.isOpen = !com.fields.isOpen;
       }
     });
-    setComment(temp);
+    setSocailMediaFaqs(temp);
   };
 
   return (
@@ -46,29 +44,36 @@ const SocialMediaFaqs = () => {
         />
 
         <div className="row">
-          <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 ">
-            {comment.map((c) => (
-              <div className="comment">
-                <div className="number">{c.number}</div>
-                <div className="text">
-                  <span className="question">Hows Work This antivirus?</span>
+          <Fade duration={2000} delay={200} big>
+            <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 ">
+              {socailMediaFaqs &&
+                socailMediaFaqs.map((c) => (
+                  <div className="comment">
+                    <div className="number">{c.fields.number}</div>
+                    <div className="text">
+                      <span className="question">{c.fields.question}</span>
 
-                  <Collapse isOpened={c.isOpened}>
-                    <span className="answer">{c.comment}</span>
-                  </Collapse>
-                </div>
+                      <Collapse isOpened={c.fields.isOpen}>
+                        <span className="answer">
+                          {c.fields.answer.content[0].content[0].value}
+                        </span>
+                      </Collapse>
+                    </div>
 
-                {c.isOpened ? (
-                  <AiFillCaretUp onClick={() => handleCollapse(c)} />
-                ) : (
-                  <AiFillCaretDown onClick={() => handleCollapse(c)} />
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 pic-side">
-            <img className="img-side-faq" src={getHelp} alt="" />
-          </div>
+                    {c.fields.isOpen ? (
+                      <AiFillCaretUp onClick={() => handleCollapse(c)} />
+                    ) : (
+                      <AiFillCaretDown onClick={() => handleCollapse(c)} />
+                    )}
+                  </div>
+                ))}
+            </div>
+          </Fade>
+          <Fade duration={2000} delay={300} big>
+            <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 pic-side">
+              <img className="img-side-faq" src={getHelp} alt="" />
+            </div>
+          </Fade>
         </div>
       </div>
     </div>

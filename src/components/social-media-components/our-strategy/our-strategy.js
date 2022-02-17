@@ -8,26 +8,49 @@ import mob from "../../../images/services/mob.png";
 import "./our-strategy.scss";
 import Heading from "./../../common/heading/heading";
 import Fade from "react-reveal/Fade";
+import { useEffect, useState } from "react";
+import { client } from "./../../../client";
 
 const OurStrategy = () => {
+  const [socailMediaStrategy, setSocialMediaStrategy] = useState();
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "socialMediaStrategy",
+        select: "fields",
+      })
+      .then((res) => {
+        setSocialMediaStrategy(res.items[0].fields);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(socailMediaStrategy);
+
   return (
     <div className="our-strategy">
       <div className="container">
         <Heading
           heading="Our Strategy"
-          subHeading=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
-          luctus."
+          subHeading={socailMediaStrategy && socailMediaStrategy.supportHeading}
         />
         <Fade duration={2000} delay={200} big>
           <div className="row">
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Certified Pay-Per-Click Advertising</h6>
-              <h1>Improve your ROI with scalable PPC marketing.</h1>
+              <h6>
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[0].subHeading}
+              </h6>
+              <h1>
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[0].heading}
+              </h1>
               <p>
-                SmartSites is rated in the top 1% of digital marketing agencies.
-                Blending performance with exceptional customer service, our PPC
-                specialists are some of the best in the industry with a track
-                record for growing successful businesses.
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[0].paragraph}
               </p>
 
               <div className="row">
@@ -82,14 +105,17 @@ const OurStrategy = () => {
               <img src={pc} alt="" className="dual" />
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Proven Organic SEO</h6>
-              <h1>Drive more organic traffic to your website.</h1>
+              <h6>
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[1].subHeading}
+              </h6>
+              <h1>
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[1].heading}
+              </h1>
               <p>
-                Get more qualified traffic on the search terms that matter most
-                to your business. We achieve measurable results by working on
-                every variable that impacts SERPs. Trust our proven track record
-                to maximize your visibility online. Set your business up for
-                long-term success.
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[1].paragraph}
               </p>
             </div>
           </div>{" "}
@@ -97,13 +123,17 @@ const OurStrategy = () => {
         <Fade duration={2000} delay={200} big>
           <div className="row last-row">
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Results-Driven Website Design</h6>
-              <h1>Get a beautiful website that wins customers.</h1>
+              <h6>
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[2].subHeading}
+              </h6>
+              <h1>
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[2].heading}
+              </h1>
               <p>
-                Elevate your business with a trusted website that your customers
-                will love. Our award-winning website designers will represent
-                your brand in the best possible way. Your website will load
-                extremely fast and look great on all devices.
+                {socailMediaStrategy &&
+                  socailMediaStrategy.strategies[2].paragraph}
               </p>
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6">
