@@ -55,6 +55,29 @@ const Navbar = () => {
               >
                 Services
               </a>
+
+              <ul
+                className={dynamicClass}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={() => setDynamicClass("not-services-dropdown")}
+              >
+                <TiArrowSortedUp />
+                <NavLink to="/digital-media-marketing">
+                  Digital Media Marketing
+                </NavLink>
+                <hr />
+                <NavLink to="/videography">Videography</NavLink>
+                <hr />
+                <NavLink to="/amazon-creative-services">
+                  Amazon Creatives
+                </NavLink>
+                <hr />
+                <NavLink to="/amazon-ams-services">Amazon AMS Services</NavLink>
+                <hr />
+                <NavLink to="/product-listing">Product Listing</NavLink>
+                <hr />
+                <NavLink to="/amazon-research">Amazon Research</NavLink>
+              </ul>
             </li>
             <li className="nav-item">
               <NavLink
@@ -100,27 +123,6 @@ const Navbar = () => {
                 Contact
               </NavLink>
             </li>
-
-            <ul
-              className={dynamicClass}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={() => setDynamicClass("not-services-dropdown")}
-            >
-              <TiArrowSortedUp />
-              <NavLink to="/digital-media-marketing">
-                Digital Media Marketing
-              </NavLink>
-              <hr />
-              <NavLink to="/videography">Videography</NavLink>
-              <hr />
-              <NavLink to="/amazon-creative-services">Amazon Creatives</NavLink>
-              <hr />
-              <NavLink to="/amazon-ams-services">Amazon AMS Services</NavLink>
-              <hr />
-              <NavLink to="/product-listing">Product Listing</NavLink>
-              <hr />
-              <NavLink to="/amazon-research">Amazon Research</NavLink>
-            </ul>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fa fa-times" : "fa fa-bars"}></i>

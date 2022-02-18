@@ -10,7 +10,7 @@ const CardPanel = (props) => {
       <div className="row cards-panel">
         {props.data &&
           props.data.bannerCards.map((bcards, i) => (
-            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
               <BannerCard
                 class="cards"
                 name={bcards.heading}

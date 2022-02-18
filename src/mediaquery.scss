@@ -71,8 +71,22 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .services-dropdown {
+    position: relative !important;
+    display: inline-block !important;
+    width: fit-content !important;
+    top: -5px !important;
+    left: 0 !important;
+    text-align: center !important;
+    line-height: 8px !important;
+  }
+
+  .upper-gap {
+    margin-top: 6rem !important;
+  }
+
   .services .heading-thatis-common {
-    margin-top: 65rem;
+    margin-top: 40rem;
   }
   .social-media .faqs .row .col-lg-6 img {
     width: 85% !important;
@@ -226,7 +240,17 @@
   }
 }
 
-@media (min-width: 576px) and (max-width: 766px) {
+@media (min-width: 576px) and (max-width: 767px) {
+  .services-dropdown {
+    position: relative !important;
+    display: inline-block !important;
+    width: fit-content !important;
+    top: -5px !important;
+    text-align: center !important;
+    left: 0 !important;
+    line-height: 8px !important;
+  }
+
   .services .heading-thatis-common {
     margin-top: 70rem !important;
   }
@@ -400,6 +424,16 @@
 }
 
 @media (max-width: 575px) {
+  .services-dropdown {
+    position: relative !important;
+    display: inline-block !important;
+    width: fit-content !important;
+    top: -5px !important;
+    text-align: center !important;
+    line-height: 8px !important;
+    left: 0 !important;
+  }
+
   .services .heading-thatis-common {
     margin-top: 45rem !important;
   }
