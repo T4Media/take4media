@@ -3,15 +3,31 @@ import creativeImage from "../../../images/creative-page/1.png";
 import Heading from "../../common/heading/heading";
 import Fade from "react-reveal/Fade";
 import "./ams-strategies.scss";
+import { useEffect, useState } from "react";
+import { client } from "../../../client";
 
 const AMSStrategies = () => {
+  const [AMSStrategies, setAMSStrategies] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "amazonAmsStrategy",
+        select: "fields",
+      })
+      .then((res) => {
+        setAMSStrategies(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="amazon-strategies">
       <div className="container">
         <Heading
           heading="Our Strategy"
-          subHeading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
-          luctus."
+          subHeading="We Make your Advertising endeavors simpler and easier."
         />
 
         <Fade duration={2000} delay={300} big>
@@ -20,14 +36,10 @@ const AMSStrategies = () => {
               <img className="brain-storming" src={creativeImage} alt="" />
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Proven Organic SEO</h6>
-              <h1>Brain Storming.</h1>
+              <h6>{AMSStrategies && AMSStrategies[0].fields.subHeading}</h6>
+              <h1>{AMSStrategies && AMSStrategies[0].fields.strategyName}</h1>
               <p>
-                Get more qualified traffic on the search terms that matter most
-                to your business. We achieve measurable results by working on
-                every variable that impacts SERPs. Trust our proven track record
-                to maximize your visibility online. Set your business up for
-                long-term success.
+                {AMSStrategies && AMSStrategies[0].fields.strategyDescription}
               </p>
             </div>
           </div>
@@ -35,13 +47,10 @@ const AMSStrategies = () => {
         <Fade duration={2000} delay={300} big>
           <div className="row last-row">
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Results-Driven Website Design</h6>
-              <h1>Get a beautiful website that wins customers.</h1>
+              <h6>{AMSStrategies && AMSStrategies[1].fields.subHeading}</h6>
+              <h1>{AMSStrategies && AMSStrategies[1].fields.strategyName}</h1>
               <p>
-                Elevate your business with a trusted website that your customers
-                will love. Our award-winning website designers will represent
-                your brand in the best possible way. Your website will load
-                extremely fast and look great on all devices.
+                {AMSStrategies && AMSStrategies[1].fields.strategyDescription}
               </p>
             </div>
             <div
@@ -65,13 +74,10 @@ const AMSStrategies = () => {
               <img src={creativeImage2} alt="" className="dual" />
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Results-Driven Website Design</h6>
-              <h1>Get a beautiful website that wins customers.</h1>
+              <h6>{AMSStrategies && AMSStrategies[2].fields.subHeading}</h6>
+              <h1>{AMSStrategies && AMSStrategies[2].fields.strategyName}</h1>
               <p>
-                Elevate your business with a trusted website that your customers
-                will love. Our award-winning website designers will represent
-                your brand in the best possible way. Your website will load
-                extremely fast and look great on all devices.
+                {AMSStrategies && AMSStrategies[2].fields.strategyDescription}
               </p>
             </div>
           </div>{" "}

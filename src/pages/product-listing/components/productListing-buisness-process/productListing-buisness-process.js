@@ -28,7 +28,7 @@ const ProductListingBusinessProcess = () => {
     <div className="creative-business-process">
       <div className="container">
         <Heading
-          heading="When are we right for you?"
+          heading="Kickstart Your Product Listing in Its Prime"
           subHeading="Simplifying your growth strategy"
         />
 

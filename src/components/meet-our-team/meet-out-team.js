@@ -13,10 +13,10 @@ const MeetOurTeam = () => {
     <div class="meet-our-team">
       <div class="container-fluid">
         <div class="row">
-          <h1>Meet Our Team</h1>
+          <h1>A Team Our Pride</h1>
           <h6>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in
-            animi doloribus
+            We would be nowhere without the brilliant accomplishments and
+            achievements of our members.
           </h6>
 
           <div class="col">

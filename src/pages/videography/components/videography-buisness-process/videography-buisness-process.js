@@ -30,8 +30,8 @@ const VideographyBuisnessProcess = () => {
     <div className="creative-business-process">
       <div className="container">
         <Heading
-          heading="When are we right for you?"
-          subHeading="Simplifying your growth strategy"
+          heading="Fast Tracking Your Growth"
+          subHeading="We are the solution to your expansion."
         />
 
         <div className="row">

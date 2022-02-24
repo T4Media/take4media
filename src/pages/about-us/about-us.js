@@ -17,8 +17,40 @@ import Line from "../../components/common/line/line";
 import MeetOurTeam from "./../../components/meet-our-team/meet-out-team";
 import Slide from "react-reveal/Slide";
 import Fade from "react-reveal/Fade";
+import { client } from "../../client";
+import { useState, useEffect } from "react";
 
 const AboutUs = () => {
+  const [about, setAbout] = useState();
+  const [skills, setSkills] = useState();
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "aboutBenefits",
+        select: "fields",
+      })
+      .then((res) => {
+        setAbout(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    client
+      .getEntries({
+        content_type: "aboutSkills",
+        select: "fields",
+      })
+      .then((res) => {
+        setSkills(res.items[0].fields);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(skills);
   return (
     <div className="about-us">
       <div className="about-us-banner">
@@ -32,68 +64,16 @@ const AboutUs = () => {
       <div className="qualities">
         <div className="container">
           <div className="row">
-            <Fade big>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-5">
-                <AiOutlineAntDesign />
-                <h2>Excellent Design</h2>
-                <p>
-                  Vivamus at vehicula justo hendrerit euismod ante. Suspendisse
-                  egestas efficitur euismod.
-                </p>
-              </div>
-            </Fade>
-
-            <Fade delay={300} big>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-5">
-                <AiFillFastForward />
-                <h2>Fast Response</h2>
-                <p>
-                  Vivamus at vehicula justo hendrerit euismod ante. Suspendisse
-                  egestas efficitur euismod.
-                </p>
-              </div>
-            </Fade>
-
-            <Fade delay={400} big>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-5">
-                <AiOutlineSolution />
-                <h2>Perfect Solutions</h2>
-                <p>
-                  Vivamus at vehicula justo hendrerit euismod ante. Suspendisse
-                  egestas efficitur euismod.
-                </p>
-              </div>
-            </Fade>
-            <Fade delay={500} big>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-5">
-                <AiOutlineFieldTime />
-                <h2>Time Saving</h2>
-                <p>
-                  Vivamus at vehicula justo hendrerit euismod ante. Suspendisse
-                  egestas efficitur euismod.
-                </p>
-              </div>
-            </Fade>
-            <Fade delay={600} big>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-5">
-                <BiSupport />
-                <h2>Personal Support</h2>
-                <p>
-                  Vivamus at vehicula justo hendrerit euismod ante. Suspendisse
-                  egestas efficitur euismod.
-                </p>
-              </div>
-            </Fade>
-            <Fade delay={700} big>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-5">
-                <TiTickOutline />
-                <h2>Best Quality</h2>
-                <p>
-                  Vivamus at vehicula justo hendrerit euismod ante. Suspendisse
-                  egestas efficitur euismod.
-                </p>
-              </div>
-            </Fade>
+            {about &&
+              about.map((ab) => (
+                <Fade big>
+                  <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-5">
+                    <AiOutlineAntDesign />
+                    <h2>{ab.fields.benefitName}</h2>
+                    <p>{ab.fields.benefitText}</p>
+                  </div>
+                </Fade>
+              ))}
           </div>
         </div>
       </div>
@@ -103,19 +83,16 @@ const AboutUs = () => {
           <Fade delay={300} big>
             <div className="row">
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <h1>Here are some of our great skills</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                  id arcu luctus, pellentesque lorem ac, pharetra sapien.
-                </p>
+                <h1>{skills && skills.skillHeading.heading}</h1>
+                <p>{skills && skills.skillHeading.paragraph}</p>
 
-                <h5>UI DESIGN</h5>
+                <h5>{skills && skills.skillsName.skill_1}</h5>
                 <div class="bar learning"></div>
-                <h5>UX DESIGN</h5>
+                <h5>{skills && skills.skillsName.skill_2}</h5>
                 <div class="bar back basic"></div>
-                <h5>DIGITAL MARKETING</h5>
+                <h5>{skills && skills.skillsName.skill_3}</h5>
                 <div class="bar back intermediate"> </div>
-                <h5>SOCIAL MEDIA</h5>
+                <h5>{skills && skills.skillsName.skill_4}</h5>
                 <div class="bar front advanced"></div>
               </div>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -134,14 +111,8 @@ const AboutUs = () => {
                 <img src={solution} alt="" />
               </div>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <h1>Best Solutions for Your Business</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam sit amet urna quis odio vehicula consectetur. Donec eu
-                  gravida diam. Aenean accumsan nisl sed fringilla sollicitudin.
-                  Donec tincidunt quis dolor eget consectetur. Suspendisse a
-                  mollis lacus.
-                </p>
+                <h1>{skills && skills.solution.heading}</h1>
+                <p>{skills && skills.solution.paragraph}</p>
 
                 <Button label="Watch Video" style={{ marginTop: "1rem" }} />
               </div>
@@ -153,8 +124,8 @@ const AboutUs = () => {
 
       <ProjectInMind
         data={{
-          heading: "Have any project in mind?",
-          buttonLabel: "MAKE INQUIRY",
+          heading: "Are You Ready to Change Your Life?",
+          buttonLabel: "MAKE YOUR MOVE",
         }}
       />
       <Footer />

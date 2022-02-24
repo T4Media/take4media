@@ -30,8 +30,8 @@ const HowWeHelp = () => {
     <div className="how-we-help">
       <div className="container">
         <Heading
-          heading="Simplifying your growth strategy."
-          subHeading="When are we right for you?"
+          heading="Secrets to Accelerating Your Growth"
+          subHeading="How we make things possible for you?"
         />
 
         <div className="row" style={{ justifyContent: "center" }}>

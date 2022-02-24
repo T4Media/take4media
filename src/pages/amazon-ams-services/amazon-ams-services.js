@@ -31,8 +31,8 @@ const AmazonAMSServices = () => {
       <OurClients />
       <ProjectInMind
         data={{
-          heading: "Start your Journey with us!",
-          para: "Put your products in front of the millions of customers who search Amazon every day.",
+          heading: "Embark on Becoming a Bestseller with Us",
+          para: "Your product will enjoy supremacy on Amazon with the traffic and conversion it accumulates.",
           buttonLabel: "Find Service Providers",
         }}
         showSocialMedia={true}

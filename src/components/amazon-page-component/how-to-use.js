@@ -2,8 +2,26 @@ import Line from "../../components/common/line/line";
 import hero from "../../images/services/hero.png";
 import Fade from "react-reveal/Fade";
 import "./style.scss";
+import { client } from "../../client";
+import { useState, useEffect } from "react";
 
 const AMSHowToUse = () => {
+  const [AMSHowToUse, setAMSHowToUse] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "amazonAmsSteps",
+        select: "fields",
+      })
+      .then((res) => {
+        setAMSHowToUse(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(AMSHowToUse);
   return (
     <div className="how-to-use">
       <Line top={35} />
@@ -14,37 +32,15 @@ const AMSHowToUse = () => {
               <img src={hero} alt="" />
             </div>
             <div className="col-xl-10 col-lg-10 col-md-10">
-              <h1>How to use the Service Provider Network</h1>
+              <h1>How to Hire the Right Service Provider?</h1>
 
-              <div className="step step-1">
-                <h5>Step 1</h5>
-                <h6>Become an Amazon Seller</h6>
-              </div>
-              <div className="step step-2">
-                <h5>Step 2</h5>
-                <p>
-                  Visit the SPN website and select the service category you
-                  want.
-                </p>
-              </div>
-              <div className="step step-3">
-                <h5>Step 3</h5>
-                <p>
-                  Filter results by service type, location, language, and
-                  reviews to find what you need.
-                </p>
-              </div>
-              <div className="step step-4">
-                <h5>Step 4</h5>
-                <p>
-                  Once you find the service that you’re interested in, click
-                  “Contact Provider” to raise a service request.
-                </p>
-              </div>
-              <div className="step step-5">
-                <h5>Step 5</h5>
-                <p>The provider will contact you back.</p>
-              </div>
+              {AMSHowToUse &&
+                [...AMSHowToUse].reverse().map((ams, i) => (
+                  <div className={`step step-${i + 1}`}>
+                    <h5>Step {i + 1}</h5>
+                    <h6>{ams.fields.stepText}</h6>
+                  </div>
+                ))}
             </div>
           </div>
         </Fade>

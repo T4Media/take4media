@@ -5,46 +5,50 @@ import { GiWorld } from "react-icons/gi";
 import Line from "../common/line/line";
 import Fade from "react-reveal/Fade";
 import "./style.scss";
+import { client } from "../../client";
+import { useState, useEffect } from "react";
+
 const AMSKeyFeatures = () => {
+  const [AMSKeyFeatures, setAMSKeyFeatures] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "amazonAmsKeyFeatures",
+        select: "fields",
+      })
+      .then((res) => {
+        setAMSKeyFeatures(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="key-features">
       <div className="container key-features-box">
         <div className="row">
           <Heading heading="Key Features" />
-          <Fade duration={2000} delay={200} big>
-            <div className="col-xl-4 col-lg-4">
-              <GoVerified />
 
-              <h6>Verified Peer Reviews</h6>
-              <p>
-                View feedback and ratings by sellers to make an informed
-                decision
-              </p>
-            </div>
-          </Fade>
+          {AMSKeyFeatures &&
+            AMSKeyFeatures.map((ams, i) => (
+              <Fade duration={2000} delay={200} big>
+                <div className="col-xl-4 col-lg-4">
+                  {i === 0 ? (
+                    <GoVerified />
+                  ) : i === 1 ? (
+                    <AiFillCustomerService />
+                  ) : i === 2 ? (
+                    <GiWorld />
+                  ) : (
+                    ""
+                  )}
 
-          <Fade duration={2000} delay={300} big>
-            <div className="col-xl-4 col-lg-4">
-              <AiFillCustomerService />
-
-              <h6>Qualified Service Providers</h6>
-              <p>
-                Service providers need to meet a pre-defined criteria to be
-                listed on SPN
-              </p>
-            </div>
-          </Fade>
-          <Fade duration={2000} delay={400} big>
-            <div className="col-xl-4 col-lg-4">
-              <GiWorld />
-
-              <h6>Global Reach</h6>
-              <p>
-                850+ service providers supporting your business across 21
-                countries
-              </p>
-            </div>
-          </Fade>
+                  <h6>{ams.fields.heading}</h6>
+                  <p>{ams.fields.subHeading}</p>
+                </div>
+              </Fade>
+            ))}
         </div>
       </div>
       <br />

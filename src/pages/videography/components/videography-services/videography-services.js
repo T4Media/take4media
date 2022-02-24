@@ -36,7 +36,7 @@ const VideographyServices = () => {
       <div className="container">
         <Heading
           heading="Our Services"
-          subHeading="We Provide the best service to our customers."
+          subHeading="Our videography guarantees you your traffic"
         />
 
         <div className="row">

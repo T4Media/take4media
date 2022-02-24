@@ -3,39 +3,34 @@ import Heading from "../../common/heading/heading";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { Collapse } from "react-collapse";
 import Fade from "react-reveal/Fade";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ams-faqs.scss";
+import { client } from "../../../client";
 
 const AMSFaqs = () => {
-  const [comment, setComment] = useState([
-    {
-      number: "01",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: true,
-    },
-    {
-      number: "02",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: false,
-    },
-    {
-      number: "03",
-      comment:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five",
-      isOpened: false,
-    },
-  ]);
+  const [AMSFaqs, setAMSFaqs] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "amazonAmsFaqs",
+        select: "fields",
+      })
+      .then((res) => {
+        setAMSFaqs(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleCollapse = (c) => {
-    const temp = [...comment];
+    const temp = [...AMSFaqs];
     temp.map((com) => {
-      if (com.number === c.number) {
-        com.isOpened = !com.isOpened;
+      if (com.fields.number === c.fields.number) {
+        com.fields.isOpen = !com.fields.isOpen;
       }
     });
-    setComment(temp);
+    setAMSFaqs(temp);
   };
 
   return (
@@ -48,24 +43,27 @@ const AMSFaqs = () => {
         <Fade duration={2000} delay={300} big>
           <div className="row">
             <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 ">
-              {comment.map((c) => (
-                <div className="comment">
-                  <div className="number">{c.number}</div>
-                  <div className="text">
-                    <span className="question">Hows Work This antivirus?</span>
+              {AMSFaqs &&
+                AMSFaqs.map((c) => (
+                  <div className="comment">
+                    <div className="number">{c.fields.number}</div>
+                    <div className="text">
+                      <span className="question">{c.fields.question}</span>
 
-                    <Collapse isOpened={c.isOpened}>
-                      <span className="answer">{c.comment}</span>
-                    </Collapse>
+                      <Collapse isOpened={c.fields.isOpen}>
+                        <span className="answer">
+                          {c.fields.answer.content[0].content[0].value}
+                        </span>
+                      </Collapse>
+                    </div>
+
+                    {c.fields.isOpen ? (
+                      <AiFillCaretUp onClick={() => handleCollapse(c)} />
+                    ) : (
+                      <AiFillCaretDown onClick={() => handleCollapse(c)} />
+                    )}
                   </div>
-
-                  {c.isOpened ? (
-                    <AiFillCaretUp onClick={() => handleCollapse(c)} />
-                  ) : (
-                    <AiFillCaretDown onClick={() => handleCollapse(c)} />
-                  )}
-                </div>
-              ))}
+                ))}
             </div>
             <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 pic-side">
               <img className="img-side-faq" src={getHelp} alt="" />

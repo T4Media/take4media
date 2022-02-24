@@ -35,7 +35,7 @@ const ProductListingServices = () => {
       <div className="container">
         <Heading
           heading="Our Services"
-          subHeading="We Provide the best service to our customers."
+          subHeading="Our Services Have Always Delivered."
         />
         <div className="row">
           {productListingServices &&

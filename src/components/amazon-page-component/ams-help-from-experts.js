@@ -2,24 +2,39 @@ import helpFromExpert from "../../images/services/help_from_experts.svg";
 import Heading from "../common/heading/heading";
 import Fade from "react-reveal/Fade";
 import "./style.scss";
+import { client } from "../../client";
+import { useState, useEffect } from "react";
 
 const AMSHelpFromExperts = () => {
+  const [AMSDeal, setAMSDeal] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "amazonAmsDealSection",
+        select: "fields",
+      })
+      .then((res) => {
+        setAMSDeal(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(AMSDeal);
+
   return (
     <div className="help-from-experts">
       <div className="container help-from-experts-box">
         <div className="row">
           <div className="col-xl-7 col-lg-6">
             <Heading
-              heading="Get Help from Experts"
-              subHeading="Need help with listing your products?"
+              heading={AMSDeal && AMSDeal[0].fields.heading}
+              subHeading={AMSDeal && AMSDeal[0].fields.subHeading}
             />
             <Fade duration={2000} delay={300} big>
               <p>
-                Our network of qualified third party service providers will help
-                you with everything you need to launch, manage and grow your
-                business on Amazon. From shooting great images for your products
-                to improving your chances of increasing sales on Amazon, our
-                service providers help you with every step of selling online.
+                {AMSDeal && AMSDeal[0].fields.text.content[0].content[0].value}
               </p>
             </Fade>
           </div>

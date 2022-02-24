@@ -6,8 +6,26 @@ import Slide from "react-reveal/Slide";
 import Navbar from "../navbar/navbar";
 import Fade from "react-reveal/Fade";
 import "./serviceBanner.scss";
+import { useState, useEffect } from "react";
+import { client } from "../../client";
 
 const AMSBanner = () => {
+  const [AMSBanner, setAMSBanner] = useState();
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "amazonAmsBanner",
+        select: "fields",
+      })
+      .then((res) => {
+        setAMSBanner(res.items[0].fields);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="service-banner">
       <Navbar />
@@ -16,11 +34,8 @@ const AMSBanner = () => {
         <div className="row">
           <Slide left duration={1200}>
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 heading-coloumn">
-              <h3>America’s #1 Rated Digital Marketing Agency.</h3>
-              <h1 className="over-write">Amazon AMS Services</h1>
-              <p>
-                A one-stop shop for running your e-commerce business on Amazon
-              </p>
+              <h3>{AMSBanner && AMSBanner.subHeading}</h3>
+              <h1 className="over-write">{AMSBanner && AMSBanner.heading}</h1>
 
               <Button
                 label="Find Service Provider"

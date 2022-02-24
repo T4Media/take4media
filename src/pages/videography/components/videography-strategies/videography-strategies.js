@@ -25,11 +25,7 @@ const VideographyStrategies = () => {
   return (
     <div className="creative-strategies">
       <div className="container">
-        <Heading
-          heading="Our Strategy"
-          subHeading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
-          luctus."
-        />
+        <Heading heading="Our Strategy" />
         <Fade duration={2000} delay={300} big>
           <div className="row middle-row">
             <div className="col-xl-6 col-lg-6 col-md-6 brain-storming-section">

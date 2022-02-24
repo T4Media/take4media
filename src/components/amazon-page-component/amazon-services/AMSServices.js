@@ -13,8 +13,25 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { client } from "../../../client";
+import { useState, useEffect } from "react";
 
 const AmazonServices = () => {
+  const [AMSServices, setAMSServices] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "amazonAmsServices",
+        select: "fields",
+      })
+      .then((res) => {
+        setAMSServices(res.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -81,75 +98,21 @@ const AmazonServices = () => {
                     aria-label="basic tabs example"
                     indicatorColor="red"
                   >
-                    <Tab label="E-Commerce" {...a11yProps(0)} />
-                    <Tab label="Social" {...a11yProps(1)} />
-                    <Tab label="Marketplaces" {...a11yProps(2)} />
-                    <Tab label="Food" {...a11yProps(3)} />
+                    {AMSServices &&
+                      AMSServices.map((ams, i) => (
+                        <Tab label={ams.fields.serviceName} {...a11yProps(i)} />
+                      ))}
                   </Tabs>
                 </Box>
-                <TabPanel value={value} index={0}>
-                  <h4>E-Commerce</h4>
-                  <p>
-                    We build marketplaces with intuitive vendor and client
-                    profiles, interactive user interface, multiple payment
-                    options, product listings, simple checkout, and more.
-                  </p>
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                  <h4>Social</h4>
-                  <p>
-                    We build marketplaces with intuitive vendor and client
-                    profiles, interactive user interface.
-                  </p>
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                  <h4>Marketplaces</h4>
-                  <p>
-                    We build marketplaces with intuitive vendor and client
-                    profiles, interactive user interface, multiple payment
-                    options, product listings, simple checkout, and more.
-                  </p>
-                </TabPanel>{" "}
-                <TabPanel value={value} index={3}>
-                  <h4 style={{ color: "white" }}>Food</h4>
-                  <p>
-                    We build marketplaces with intuitive vendor and client
-                    profiles, interactive user interface, multiple payment
-                    options, product listings, simple checkout, and more.
-                  </p>
-                </TabPanel>
+                {AMSServices &&
+                  AMSServices.map((ams, i) => (
+                    <TabPanel value={value} index={i}>
+                      <h4>{ams.fields.serviceName}</h4>
+                      <p>{ams.fields.serviceDescription}</p>
+                    </TabPanel>
+                  ))}
               </Box>
             </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={300} big>
-              <ServiceCard
-                heading="Amazon AMS Services (Ads/PPCmanagement)"
-                icon={<GiArchiveResearch />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={400} big>
-              <ServiceCard
-                heading="Storefront Management"
-                icon={<HiDocumentSearch />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <Fade duration={2000} delay={500} big>
-              <ServiceCard
-                heading="Amazon POST Management (To increase brand followers)"
-                icon={<FaAdversal />}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus."
-              />
-            </Fade>
           </div>
         </div>
       </div>

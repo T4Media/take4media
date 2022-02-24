@@ -3,15 +3,33 @@ import creativeImage from "../../../../images/creative-page/1.png";
 import Fade from "react-reveal/Fade";
 import "./amazon-research-strategies.scss";
 import Heading from "./../../../../components/common/heading/heading";
+import { useEffect, useState } from "react";
+import { client } from "./../../../../client";
 
 const AmazonResearchStrategies = () => {
+  const [ARStrategies, setARStrategies] = useState();
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "amazonResearchStrategy",
+        select: "fields",
+      })
+      .then((res) => {
+        setARStrategies(res.items[0].fields);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log("creative", ARStrategies);
+
   return (
     <div className="creative-strategies">
       <div className="container">
         <Heading
           heading="Our Strategy"
-          subHeading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu
-          luctus."
+          subHeading="We concentrate on ensuring that your platform excels exponentially"
         />
         <Fade duration={2000} delay={300} big>
           <div className="row middle-row">
@@ -19,29 +37,18 @@ const AmazonResearchStrategies = () => {
               <img className="brain-storming" src={creativeImage} alt="" />
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Proven Organic SEO</h6>
-              <h1>Brain Storming.</h1>
-              <p>
-                Get more qualified traffic on the search terms that matter most
-                to your business. We achieve measurable results by working on
-                every variable that impacts SERPs. Trust our proven track record
-                to maximize your visibility online. Set your business up for
-                long-term success.
-              </p>
+              <h6>{ARStrategies && ARStrategies.strategies[0].subHeading}</h6>
+              <h1>{ARStrategies && ARStrategies.strategies[0].heading}</h1>
+              <p>{ARStrategies && ARStrategies.strategies[0].paragraph}</p>
             </div>
           </div>
         </Fade>
         <Fade duration={2000} delay={300} big>
           <div className="row last-row">
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Results-Driven Website Design</h6>
-              <h1>Get a beautiful website that wins customers.</h1>
-              <p>
-                Elevate your business with a trusted website that your customers
-                will love. Our award-winning website designers will represent
-                your brand in the best possible way. Your website will load
-                extremely fast and look great on all devices.
-              </p>
+              <h6>{ARStrategies && ARStrategies.strategies[1].subHeading}</h6>
+              <h1>{ARStrategies && ARStrategies.strategies[1].heading}</h1>
+              <p>{ARStrategies && ARStrategies.strategies[1].paragraph}</p>
             </div>
             <div
               className="col-xl-6 col-lg-6 col-md-6"
@@ -65,14 +72,9 @@ const AmazonResearchStrategies = () => {
             </div>
 
             <div className="col-xl-6 col-lg-6 col-md-6">
-              <h6>Results-Driven Website Design</h6>
-              <h1>Get a beautiful website that wins customers.</h1>
-              <p>
-                Elevate your business with a trusted website that your customers
-                will love. Our award-winning website designers will represent
-                your brand in the best possible way. Your website will load
-                extremely fast and look great on all devices.
-              </p>
+              <h6>{ARStrategies && ARStrategies.strategies[2].subHeading}</h6>
+              <h1>{ARStrategies && ARStrategies.strategies[2].heading}</h1>
+              <p>{ARStrategies && ARStrategies.strategies[2].paragraph}</p>
             </div>
           </div>
         </Fade>

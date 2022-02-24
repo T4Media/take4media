@@ -28,8 +28,8 @@ const CreativeBuisnessProcess = () => {
     <div className="creative-business-process">
       <div className="container">
         <Heading
-          heading="When are we right for you?"
-          subHeading="Simplifying your growth strategy"
+          heading="We Secrete Imagination That Entices"
+          subHeading="Your Amazon platform Will Get Its Boost"
         />
 
         <div className="row">
