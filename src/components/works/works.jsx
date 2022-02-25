@@ -1,10 +1,4 @@
 import Heading from "../common/heading/heading";
-import img_1 from "../../images/work/1.jpg";
-import img_2 from "../../images/work/2.jpg";
-import img_3 from "../../images/work/3.jpg";
-import img_4 from "../../images/work/4.jpg";
-import img_5 from "../../images/work/5.jpg";
-import img_6 from "../../images/work/6.jpg";
 import Line from "../common/line/line";
 import "./works.scss";
 import Slide from "react-reveal/Slide";
@@ -48,7 +42,7 @@ const Works = () => {
                     }
                   >
                     <div class="img-wrapper">
-                      <Link to="/work/architecture">
+                      <Link to={wrk.fields.slug}>
                         <img
                           className="inner-img"
                           src={wrk.fields.image.fields.file.url}

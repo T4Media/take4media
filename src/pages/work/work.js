@@ -1,42 +1,48 @@
 import Navbar from "../../components/navbar/navbar";
 import "./work.scss";
-import work1 from "../../images/our-work/1.jpg";
-import work2 from "../../images/our-work/2.jpg";
 import work3 from "../../images/our-work/3.jpg";
 import work4 from "../../images/our-work/4.jpg";
 import work5 from "../../images/our-work/5.jpg";
 import work6 from "../../images/our-work/6.jpg";
 import work7 from "../../images/our-work/7.jpg";
 import work8 from "../../images/our-work/8.jpg";
-import work9 from "../../images/our-work/9.jpg";
-import work10 from "../../images/our-work/10.jpg";
-import { client } from "../../client";
-import { addData } from "../../services/slices/dataSlice";
-import { useDispatch } from "react-redux";
+import w from "../../images/our-work/002.jpg";
+import w2 from "../../images/our-work/001.jpg";
+import w3 from "../../images/our-work/004.jpg";
+import w4 from "../../images/our-work/005.jpg";
+import w5 from "../../images/our-work/11.jpg";
+import w6 from "../../images/our-work/12.jpg";
 
+import { useDispatch } from "react-redux";
 import Footer from "../../components/footer/footer";
 import { useState, useEffect } from "react";
 import Slide from "react-reveal/Slide";
+import React from "react";
+import ReactPlayer from "react-player";
+import vid from "../../videos/1.mp4";
+import vid1 from "../../videos/2.mp4";
+import vid2 from "../../videos/3.mp4";
+import vid3 from "../../videos/4.mp4";
 
 const Work = (props) => {
   const dispatch = useDispatch();
 
   const portfolio = [
-    { img: work1, type: "photography" },
-    { img: work3, type: "architecture" },
-    { img: work5, type: "architecture" },
-    { img: work7, type: "design" },
-    { img: work9, type: "photography" },
-    { img: work2, type: "photography" },
-    { img: work4, type: "architecture" },
-    { img: work6, type: "design" },
-    { img: work8, type: "architecture" },
-    { img: work10, type: "photography" },
+    { img: w, type: "photography" },
+    { img: vid, type: "videography" },
+    { img: vid1, type: "videography" },
+    { img: w6, type: "design" },
+    { img: w3, type: "photography" },
+    { img: w4, type: "photography" },
+    { img: vid2, type: "videography" },
+    { img: w5, type: "design" },
+    { img: vid3, type: "videography" },
+    { img: w2, type: "photography" },
   ];
 
   const [menus, setMenus] = useState({
     all: true,
-    architecture: false,
+    videography: false,
     photography: false,
     design: false,
   });
@@ -44,9 +50,9 @@ const Work = (props) => {
   useEffect(() => {
     let temp = { ...menus };
 
-    if (props.architecture) {
+    if (props.videography) {
       temp.all = false;
-      temp.architecture = true;
+      temp.videography = true;
       setMenus(temp);
     }
     if (props.photography) {
@@ -64,7 +70,7 @@ const Work = (props) => {
   const allTrue = () => {
     let temp = { ...menus };
     temp.all = true;
-    temp.architecture = false;
+    temp.videography = false;
     temp.photography = false;
     temp.design = false;
 
@@ -73,16 +79,16 @@ const Work = (props) => {
   const photographyTrue = () => {
     let temp = { ...menus };
     temp.all = false;
-    temp.architecture = false;
+    temp.videography = false;
     temp.photography = true;
     temp.design = false;
     setMenus(temp);
   };
 
-  const architectureTrue = () => {
+  const videographyTrue = () => {
     let temp = { ...menus };
     temp.all = false;
-    temp.architecture = true;
+    temp.videography = true;
     temp.photography = false;
     temp.design = false;
     setMenus(temp);
@@ -91,11 +97,17 @@ const Work = (props) => {
   const designTrue = () => {
     let temp = { ...menus };
     temp.all = false;
-    temp.architecture = false;
+    temp.videography = false;
     temp.photography = false;
     temp.design = true;
     setMenus(temp);
   };
+
+  const check = (e) => {
+    console.log(e);
+  };
+
+  let [videoPlay, setVideoPlay] = useState(false);
 
   return (
     <div className="work">
@@ -120,10 +132,10 @@ const Work = (props) => {
             Photography
           </li>
           <li
-            className={menus.architecture ? "make-red" : ""}
-            onClick={architectureTrue}
+            className={menus.videography ? "make-red" : ""}
+            onClick={videographyTrue}
           >
-            Architecture
+            Videography
           </li>
           <li className={menus.design ? "make-red" : ""} onClick={designTrue}>
             Design
@@ -149,14 +161,15 @@ const Work = (props) => {
                       ))
                   : ""}
 
-                {menus.architecture
+                {menus.videography
                   ? portfolio
                       .splice(0, Math.ceil(portfolio.length / 2))
                       .map((p) =>
-                        p.type === "architecture" ? (
+                        p.type === "videography" ? (
                           <Slide bottom>
                             <div className="col-xl-12">
-                              <img className="image" src={p.img} alt="" />
+                              <ReactPlayer url={p.img} controls width="100%" />
+
                               <div class="middle">
                                 <div class="text"> {p.type}</div>
                               </div>
@@ -221,12 +234,18 @@ const Work = (props) => {
                     ))
                   : ""}
 
-                {menus.architecture
+                {menus.videography
                   ? portfolio.splice(-Math.ceil(portfolio.length)).map((p) =>
-                      p.type === "architecture" ? (
+                      p.type === "videography" ? (
                         <Slide bottom>
                           <div className="col-xl-12">
-                            <img className="image" src={p.img} alt="" />
+                            <ReactPlayer
+                              url={p.img}
+                              muted
+                              width="100%"
+                              controls
+                            />
+
                             <div class="middle">
                               <div class="text"> {p.type}</div>
                             </div>

@@ -62,8 +62,8 @@ function App() {
         render={(props) => <Work photography={true} {...props} />}
       />
       <Route
-        path="/work/architecture"
-        render={(props) => <Work architecture={true} {...props} />}
+        path="/work/videography"
+        render={(props) => <Work videography={true} {...props} />}
       />
       <Route path="/work/design" render={(props) => <Work design={true} />} />
       <BsArrowUpCircleFill

@@ -50,7 +50,6 @@ const AboutUs = () => {
       });
   }, []);
 
-  console.log(skills);
   return (
     <div className="about-us">
       <div className="about-us-banner">

@@ -15,7 +15,6 @@ import HomeBanner from "./../../components/home-banner/homeBanner";
 
 const Home = () => {
   const data = useSelector((state) => state.dataReducer.data);
-  console.log(data);
   return (
     <div className="home">
       <HomeBanner />
