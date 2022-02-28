@@ -241,6 +241,15 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 12px !important ;
+    max-width: 135px !important;
+    min-width: 135px !important;
+    text-align: center !important;
+  }
+
   .services-dropdown {
     position: relative !important;
     display: inline-block !important;
@@ -424,6 +433,29 @@
 }
 
 @media (max-width: 575px) {
+  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+    font-size: 12px !important;
+    max-width: 110px !important;
+    min-width: 90px !important;
+  }
+
+  .creative-service-detail h4 {
+    font-size: 18px !important;
+  }
+
+  .faqs .row .comment svg {
+    right: 0px !important;
+    top: 16px !important;
+  }
+
+  .creative-banner .headings .row .col-xl-6 .over-write {
+    text-align: center !important;
+  }
+
+  .social-media-banner .headings .row .form-coloumn {
+    text-align: -webkit-center !important;
+  }
+
   .services-dropdown {
     position: relative !important;
     display: inline-block !important;
@@ -625,14 +657,7 @@
   .accordion ul:hover li:hover {
     width: 60% !important;
   }
-  .services-dropdown {
-    padding: 8px 8px 8px 8px !important;
-    top: 44px !important;
-    left: 228px !important;
-    border-radius: 10px !important;
-    font-size: 12px !important;
-    font-family: "Poppins" !important;
-  }
+
   .so {
     line-height: 16px;
   }
@@ -1019,7 +1044,7 @@
     position: relative;
     width: 19rem !important;
     padding: 20px 0px !important;
-    left: -8px;
+    left: 0px;
   }
 
   .social-media-banner .headings .row .col-xl-6 .form form input {

@@ -79,10 +79,10 @@ const AmazonServices = () => {
         />
 
         <div className="row ">
-          <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <img src={cat} alt="" />
           </div>
-          <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div className="text-beside-image">
               <h2>Creative mobile app development agency</h2>
               <h6>
